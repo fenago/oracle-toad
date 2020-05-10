@@ -1,0 +1,2 @@
+connect internal
+shutdown abort;

@@ -1,0 +1,491 @@
+<html xmlns:v="urn:schemas-microsoft-com:vml"
+xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:w="urn:schemas-microsoft-com:office:word"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=ProgId content=Word.Document>
+<meta name=Generator content="Microsoft Word 9">
+<meta name=Originator content="Microsoft Word 9">
+<link rel=File-List href="./lab_12_01_files/filelist.xml">
+<title>Practice 12-1: Diagnose I/O Issues</title>
+<!--[if gte mso 9]><xml>
+ <o:DocumentProperties>
+  <o:Author>jspiller</o:Author>
+  <o:LastAuthor>jspiller</o:LastAuthor>
+  <o:Revision>5</o:Revision>
+  <o:TotalTime>59</o:TotalTime>
+  <o:Created>2006-02-09T21:29:00Z</o:Created>
+  <o:LastSaved>2006-02-10T14:15:00Z</o:LastSaved>
+  <o:Pages>1</o:Pages>
+  <o:Words>613</o:Words>
+  <o:Characters>3495</o:Characters>
+  <o:Company>Oracle Corporation</o:Company>
+  <o:Lines>29</o:Lines>
+  <o:Paragraphs>6</o:Paragraphs>
+  <o:CharactersWithSpaces>4292</o:CharactersWithSpaces>
+  <o:Version>9.7616</o:Version>
+ </o:DocumentProperties>
+</xml><![endif]-->
+<style>
+<!--
+ /* Font Definitions */
+@font-face
+	{font-family:"Arial Unicode MS";
+	panose-1:2 11 6 4 2 2 2 2 2 4;
+	mso-font-charset:128;
+	mso-generic-font-family:swiss;
+	mso-font-pitch:variable;
+	mso-font-signature:-1 -369098753 63 0 4129023 0;}
+@font-face
+	{font-family:"\@Arial Unicode MS";
+	panose-1:2 11 6 4 2 2 2 2 2 4;
+	mso-font-charset:128;
+	mso-generic-font-family:swiss;
+	mso-font-pitch:variable;
+	mso-font-signature:-1 -369098753 63 0 4129023 0;}
+ /* Style Definitions */
+p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{mso-style-parent:"";
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+h2
+	{mso-style-next:Normal;
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	page-break-after:avoid;
+	mso-outline-level:2;
+	font-size:14.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	font-weight:bold;
+	font-style:italic;}
+span.MsoCommentReference
+	{mso-ansi-font-size:8.0pt;
+	mso-bidi-font-size:8.0pt;}
+p.MsoList, li.MsoList, div.MsoList
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:.25in;
+	margin-bottom:.0001pt;
+	text-indent:-.25in;
+	mso-pagination:widow-orphan;
+	mso-layout-grid-align:none;
+	punctuation-wrap:simple;
+	text-autospace:none;
+	font-size:12.0pt;
+	mso-bidi-font-size:10.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+a:link, span.MsoHyperlink
+	{color:blue;
+	text-decoration:underline;
+	text-underline:single;}
+a:visited, span.MsoHyperlinkFollowed
+	{color:purple;
+	text-decoration:underline;
+	text-underline:single;}
+p
+	{margin-right:0in;
+	mso-margin-top-alt:auto;
+	mso-margin-bottom-alt:auto;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Arial Unicode MS";}
+p.NumberedSteps, li.NumberedSteps, div.NumberedSteps
+	{mso-style-name:NumberedSteps;
+	margin-top:6.0pt;
+	margin-right:0in;
+	margin-bottom:6.0pt;
+	margin-left:.25in;
+	text-indent:-.25in;
+	mso-pagination:widow-orphan;
+	mso-list:l1 level1 lfo2;
+	tab-stops:.25in list .5in left .75in;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";
+	mso-bidi-font-family:"Courier New";}
+p.Desc, li.Desc, div.Desc
+	{mso-style-name:Desc;
+	mso-style-next:NumberedSteps;
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+p.Answer, li.Answer, div.Answer
+	{mso-style-name:Answer;
+	margin-top:6.0pt;
+	margin-right:0in;
+	margin-bottom:6.0pt;
+	margin-left:.25in;
+	mso-pagination:widow-orphan;
+	tab-stops:.25in;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+@page Section1
+	{size:8.5in 11.0in;
+	margin:1.0in 1.25in 1.0in 1.25in;
+	mso-header-margin:.5in;
+	mso-footer-margin:.5in;
+	mso-paper-source:0;}
+div.Section1
+	{page:Section1;}
+ /* List Definitions */
+@list l0
+	{mso-list-id:172184803;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-1171864704 67698689 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l0:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l1
+	{mso-list-id:738283785;
+	mso-list-template-ids:1368034842;}
+@list l1:level1
+	{mso-level-style-link:NumberedSteps;
+	mso-level-text:"%1\)";
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	margin-left:.25in;
+	text-indent:-.25in;
+	font-family:"Times New Roman";}
+@list l1:level2
+	{mso-level-number-format:alpha-lower;
+	mso-level-text:"%2\)";
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	margin-left:.5in;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:"Times New Roman";
+	mso-ansi-font-weight:normal;
+	mso-ansi-font-style:normal;}
+@list l1:level3
+	{mso-level-number-format:roman-lower;
+	mso-level-text:"%3\)";
+	mso-level-tab-stop:1.0in;
+	mso-level-number-position:left;
+	margin-left:.75in;
+	text-indent:-.25in;}
+@list l1:level4
+	{mso-level-text:"\(%4\)";
+	mso-level-tab-stop:1.25in;
+	mso-level-number-position:left;
+	margin-left:1.25in;
+	text-indent:-.25in;}
+@list l1:level5
+	{mso-level-number-format:alpha-lower;
+	mso-level-text:"\(%5\)";
+	mso-level-tab-stop:1.5in;
+	mso-level-number-position:left;
+	margin-left:1.5in;
+	text-indent:-.25in;}
+@list l1:level6
+	{mso-level-number-format:roman-lower;
+	mso-level-text:"\(%6\)";
+	mso-level-tab-stop:1.75in;
+	mso-level-number-position:left;
+	margin-left:1.75in;
+	text-indent:-.25in;}
+@list l1:level7
+	{mso-level-tab-stop:2.0in;
+	mso-level-number-position:left;
+	margin-left:2.0in;
+	text-indent:-.25in;}
+@list l1:level8
+	{mso-level-number-format:alpha-lower;
+	mso-level-tab-stop:2.25in;
+	mso-level-number-position:left;
+	margin-left:2.25in;
+	text-indent:-.25in;}
+@list l1:level9
+	{mso-level-number-format:roman-lower;
+	mso-level-tab-stop:2.5in;
+	mso-level-number-position:left;
+	margin-left:2.5in;
+	text-indent:-.25in;}
+@list l2
+	{mso-list-id:1330912879;
+	mso-list-template-ids:1124132046;}
+@list l2:level2
+	{mso-level-number-format:alpha-lower;
+	mso-level-tab-stop:.75in;
+	mso-level-number-position:left;
+	margin-left:.75in;
+	text-indent:-.25in;}
+@list l2:level3
+	{mso-level-number-format:roman-lower;
+	mso-level-tab-stop:1.25in;
+	mso-level-number-position:left;
+	margin-left:1.0in;
+	text-indent:-.25in;}
+@list l2:level4
+	{mso-level-text:"\(%4\)";
+	mso-level-tab-stop:1.0in;
+	mso-level-number-position:left;
+	margin-left:1.0in;
+	text-indent:-.25in;}
+@list l2:level5
+	{mso-level-number-format:alpha-lower;
+	mso-level-text:"\(%5\)";
+	mso-level-tab-stop:1.25in;
+	mso-level-number-position:left;
+	margin-left:1.25in;
+	text-indent:-.25in;}
+@list l2:level6
+	{mso-level-number-format:roman-lower;
+	mso-level-text:"\(%6\)";
+	mso-level-tab-stop:1.5in;
+	mso-level-number-position:left;
+	margin-left:1.5in;
+	text-indent:-.25in;}
+@list l2:level7
+	{mso-level-tab-stop:1.75in;
+	mso-level-number-position:left;
+	margin-left:1.75in;
+	text-indent:-.25in;}
+@list l2:level8
+	{mso-level-number-format:alpha-lower;
+	mso-level-tab-stop:2.0in;
+	mso-level-number-position:left;
+	margin-left:2.0in;
+	text-indent:-.25in;}
+@list l2:level9
+	{mso-level-number-format:roman-lower;
+	mso-level-tab-stop:2.25in;
+	mso-level-number-position:left;
+	margin-left:2.25in;
+	text-indent:-.25in;}
+@list l3
+	{mso-list-id:1548490494;
+	mso-list-type:hybrid;
+	mso-list-template-ids:1671301208 67698703 67698713 67698715 67698703 67698713 67698715 67698703 67698713 67698715;}
+ol
+	{margin-bottom:0in;}
+ul
+	{margin-bottom:0in;}
+-->
+</style>
+<!--[if gte mso 9]><xml>
+ <o:shapedefaults v:ext="edit" spidmax="1027"/>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <o:shapelayout v:ext="edit">
+  <o:idmap v:ext="edit" data="1"/>
+ </o:shapelayout></xml><![endif]-->
+</head>
+
+<body lang=EN-US link=blue vlink=purple style='tab-interval:.5in'>
+
+<script language="JavaScript">
+    function popup_window( url, id, width, height )
+    {
+       //extract the url parameters if any, and pass them to the called html
+       var tempvar=document.location.toString(); // fetch the URL string
+       var passedparams = tempvar.lastIndexOf("?");
+       if(passedparams > -1)
+          url += tempvar.substring(passedparams);
+      popup = window.open( url, id, 'toolbar=no,scrollbars=no,location=no,statusbar=no,menubar=no,resizable=no,width=' + width + ',height=' + height + '' );
+      popup.focus();
+    }
+</script>
+
+<div class=Section1>
+
+<h2>Practice 12-1: Diagnose I/O Issues</h2>
+
+<p class=Desc>This practice consists of a series of viewlets. These viewlets
+display some relatively severe I/O performance issues. The system has been
+tuned to eliminate as many other issues as possible. Automatic shared memory
+management is enabled with as <span style='font-family:"Courier New"'>SGA_MAX_SIZE</span>
+and <span style='font-family:"Courier New"'>SGA_TARGET</span> set to 600 MB.
+The demonstration system has a slower CPU and disk drives than are available in
+most systems, but the relative improvements in I/O performance are valid for
+any system. The demonstration system has the following specifications:</p>
+
+<p class=MsoList style='margin-left:.5in;mso-list:l0 level1 lfo4;tab-stops:
+list .5in'><![if !supportLists]><span style='font-family:Symbol'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]>RH AS 4</p>
+
+<p class=MsoList style='margin-left:.5in;mso-list:l0 level1 lfo4;tab-stops:
+list .5in'><![if !supportLists]><span style='font-family:Symbol'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]>2 CPU INTEL 386 – 666 MHz</p>
+
+<p class=MsoList style='margin-left:.5in;mso-list:l0 level1 lfo4;tab-stops:
+list .5in'><![if !supportLists]><span style='font-family:Symbol'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]>1 GB RAM</p>
+
+<p class=MsoList style='margin-left:.5in;mso-list:l0 level1 lfo4;tab-stops:
+list .5in'><![if !supportLists]><span style='font-family:Symbol'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]>2 SCSI-3 controllers with a 40 MB/sec Transfer Rate </p>
+
+<p class=MsoList style='margin-left:.5in;mso-list:l0 level1 lfo4;tab-stops:
+list .5in'><![if !supportLists]><span style='font-family:Symbol'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]>4 SCSI-3 disk drives 18 GB each, with a 40 MB/sec
+transfer rate</p>
+
+<p class=MsoList style='margin-left:.5in;mso-list:l0 level1 lfo4;tab-stops:
+list .5in'><![if !supportLists]><span style='font-family:Symbol'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]>The disks are assigned 2 per controller</p>
+
+<p class=MsoList style='margin-left:.5in;mso-list:l0 level1 lfo4;tab-stops:
+list .5in'><![if !supportLists]><span style='font-family:Symbol'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]>Each disk is partitioned into 4 partitions of 4 GB
+each.</p>
+
+<p class=MsoList style='margin-left:.5in;mso-list:l0 level1 lfo4;tab-stops:
+list .5in'><![if !supportLists]><span style='font-family:Symbol'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]>The first partition on each disk (the fastest), located
+on the outside edge of the disk, is not used.</p>
+
+<p class=MsoList style='margin-left:.5in;mso-list:l0 level1 lfo4;tab-stops:
+list .5in'><![if !supportLists]><span style='font-family:Symbol'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]>The second partition of each disk is assigned to the
+ASM disk group +DG2.</p>
+
+<p class=MsoList style='margin-left:.5in;mso-list:l0 level1 lfo4;tab-stops:
+list .5in'><![if !supportLists]><span style='font-family:Symbol'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]>The third partition of each disk is mounted as /a3,
+/b3, /c3, and /d3. These are the partitions used for the single disk and manual
+striping demonstrations</p>
+
+<p class=MsoList style='margin-left:.5in;mso-list:l0 level1 lfo4;tab-stops:
+list .5in'><![if !supportLists]><span style='font-family:Symbol'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]>The fourth partitions on each disk are only used for
+incidental activity, such as the flash recovery area. These partitions are the
+slowest. </p>
+
+<p class=MsoList style='margin-left:.5in;mso-list:l0 level1 lfo4;tab-stops:
+list .5in'><![if !supportLists]><span style='font-family:Symbol'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]>The insert activity is against the <span
+style='font-family:"Courier New"'>LOADTEST*</span> tablespaces There are 10
+tablespaces. The setup script for each test drops and recreates the <span
+style='font-family:"Courier New"'>LOADTEST*</span> tablespaces. </p>
+
+<p class=MsoList style='margin-left:.5in;mso-list:l0 level1 lfo4;tab-stops:
+list .5in'><![if !supportLists]><span style='font-family:Symbol'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]>There will be significant undo and redo generated
+during each test.</p>
+
+<p class=MsoList style='margin-left:.5in;mso-list:l0 level1 lfo4;tab-stops:
+list .5in'><![if !supportLists]><span style='font-family:Symbol'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]>The source of data for the inserts is the example
+tablespace. There will be significant reads against the <span style='font-family:
+"Courier New"'>EXAMPLE</span> tablespace. </p>
+
+<p class=NumberedSteps style='margin-left:0in;text-indent:0in;mso-list:none;
+tab-stops:.25in .75in'><span style='mso-bidi-font-family:"Times New Roman"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=NumberedSteps style='margin-left:0in;text-indent:0in;mso-list:none;
+tab-stops:.25in .75in'><span style='mso-bidi-font-family:"Times New Roman"'>The
+workload consists of 10 sessions each simulating a different user each user is
+assigned to a different tablespace. Each user creates tables from existing
+tables in the </span><span style='font-family:"Courier New"'>EXAMPLE</span><span
+style='mso-bidi-font-family:"Times New Roman"'> tablespace, and then inserts
+additional rows, updates those rows, and deletes a fraction of the rows.<span
+style="mso-spacerun: yes">  </span>Each user runs the workload once and exits.
+The start time and end time for each user session is recorded in the table </span><span
+style='font-family:"Courier New"'>SYSTEM.CYCLES</span><span style='mso-bidi-font-family:
+"Times New Roman"'>. The elapsed time for each session, and the average time
+for all session provide a clear indicator of the performance differences. </span></p>
+
+<p class=MsoNormal><span style='mso-bidi-font-family:"Courier New"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=NumberedSteps style='mso-list:l1 level1 lfo5;tab-stops:list .5in left .75in'><![if !supportLists]><span
+style='mso-bidi-font-family:"Times New Roman"'>1)<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]>View the I/O Performance Test with Single Disk ( <span
+style='font-family:"Courier New"'><a
+href="javascript:popup_window('SINGLE_DISK_PERF_TEST/SINGLE_DISK_PERF_TEST_viewlet_swf.html',%20'SINGLE_DISK_PERF_TEST',%20'Single%20Disk%20Performance%20Test',824,%20648);">SINGLE_DISK_PERF_TEST</a></span>
+<span style="mso-spacerun: yes"> </span>). The configuration for this test has
+all control files and datafiles on one disk (/a3) and the redo log files on
+another disk (/b3). Notice the ADDM findings record the<span style='mso-fareast-font-family:
+"Arial Unicode MS"'> redo average write speed </span>_______________ and the
+datafile write throughput speed_________________.<span style="mso-spacerun:
+yes">  </span>Record the average session time _______________</p>
+
+<p class=NumberedSteps style='mso-list:l1 level1 lfo5;tab-stops:list .5in left .75in'><![if !supportLists]><span
+style='mso-bidi-font-family:"Times New Roman"'>2)<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]>View the I/O Performance Test with Manual Striping (<span
+style='font-family:"Courier New"'><a
+href="javascript:popup_window('MAN_STRIPE_PERF_TEST/MAN_STRIPE_PERF_TEST_viewlet_swf.html',%20'MAN_STRIPE_PERF_TEST',%20824,%20648);">MANUAL_STRIPE_PERF_TEST</a></span>).
+The configuration for this test has the <span style='font-family:"Courier New"'>SYSTEM</span>,
+<span style='font-family:"Courier New"'>UNDO</span>, <span style='font-family:
+"Courier New"'>SYSAUX</span>, and <span style='font-family:"Courier New"'>EXAMPLE</span>
+tablespaces each on a different disk. The 4 redo log files are each on a
+different disk. The <span style='font-family:"Courier New"'>LOADTEST*</span>
+tablespaces each have 4 datafiles; they are arranged so that the first datafile
+of each is on a different disk. When there are multiple datafiles, each new
+extent that is allocated will be allocated on the next datafile. The behavior
+of extent allocation will give a striping across all the datafiles for the <span
+style='font-family:"Courier New"'>LOADTEST*</span> tablespaces. Notice the ADDM
+findings record the<span style='mso-fareast-font-family:"Arial Unicode MS"'>
+redo average write speed </span>_______________ and the datafile write
+throughput speed_________________.<span style="mso-spacerun: yes"> 
+</span>Record the average session time _______________</p>
+
+<p class=NumberedSteps style='mso-list:l1 level1 lfo5;tab-stops:list .5in left .75in'><![if !supportLists]><span
+style='mso-bidi-font-family:"Times New Roman"'>3)<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]>View the I/O Performance Test with ASM. (<span
+style='font-family:"Courier New"'><a
+href="javascript:popup_window('ASM_PERF_TEST/ASM_PERF_TEST_viewlet_swf.html', 'ASM_PERF_TEST', 824, 648);">ASM_PERF_TEST</a></span>).
+Notice the ADDM findings the<span style='mso-fareast-font-family:"Arial Unicode MS"'>
+redo average write speed </span>_______________ and the datafile write
+throughput speed_________________.<span style="mso-spacerun: yes"> 
+</span>Record the average session time _______________</p>
+
+<p class=NumberedSteps style='mso-list:l1 level1 lfo5;tab-stops:list .5in left .75in'><![if !supportLists]><span
+style='mso-bidi-font-family:"Times New Roman"'>4)<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]>What conclusions can you draw from these
+demonstrations?</p>
+
+<p class=Answer style='tab-stops:.5in'><b style='mso-bidi-font-weight:normal'>Answer:</b></p>
+
+<p class=Answer style='margin-left:.5in;text-indent:-.25in;mso-list:l2 level1 lfo7;
+tab-stops:list .5in'><![if !supportLists]>1.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><![endif]>Manual striping gives a significant benefit over a single disk
+by increased bandwidth. Manual striping can be labor intensive, requiring
+downtime to reorganize the data for best performance. </p>
+
+<p class=Answer style='margin-left:.5in;text-indent:-.25in;mso-list:l2 level1 lfo7;
+tab-stops:list .5in'><![if !supportLists]>2.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><![endif]>ASM management uses the available disk bandwidth effectively
+by spreading the data layout across all the available disks.</p>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+</div>
+
+</body>
+
+</html>

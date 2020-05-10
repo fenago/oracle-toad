@@ -1,0 +1,7 @@
+
+set echo on
+
+BEGIN
+ DBMS_SERVICE.CREATE_SERVICE('SERV1','orcl02');
+END;
+/

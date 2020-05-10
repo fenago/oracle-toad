@@ -1,0 +1,29 @@
+DECLARE
+countr  number(3) := 0;
+v_last_name    member.lastname%TYPE
+v_lastname      personnel.last_name%type;
+v_ssn#         personnel.ssn#%TYPE
+cursor member_cursor is
+     select lastname
+     from member;
+cursor pers_cursor is
+     select  nvl(last_name,'0') last_name
+     from personnel
+     for update of last_name;
+BEGIN
+   OPEN member_cursor;
+   OPEN pers_cursor;
+    for i in 1..6765 Loop
+     fetch member_cursor into v_last_name;
+      fetch pers_cursor into v_lastname;
+     v_lastname := v_last_name;
+         update personnel
+    set last_name = v_lastname
+    where current of pers_cursor;
+EXIT WHEN member_cursor %NOTFOUND;
+EXIT WHEN pers_cursor %NOTFOUND;
+END LOOP;
+CLOSE pay_cursor;
+COMMIT work;
+END;
+/

@@ -1,0 +1,103 @@
+drop view           STATS$X_$KCBFWAIT
+*
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+drop public synonym  STATS$X$KCBFWAIT
+                     *
+ERROR at line 1:
+ORA-01432: public synonym to be dropped does not exist 
+
+
+drop view           STATS$X_$KSPPSV
+*
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+drop public synonym  STATS$X$KSPPSV
+                     *
+ERROR at line 1:
+ORA-01432: public synonym to be dropped does not exist 
+
+
+drop view           STATS$X_$KSPPI
+*
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+drop public synonym  STATS$X$KSPPI
+                     *
+ERROR at line 1:
+ORA-01432: public synonym to be dropped does not exist 
+
+
+drop view           STATS$X_$KSXPPING
+*
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+drop public synonym  STATS$X$KSXPPING
+                     *
+ERROR at line 1:
+ORA-01432: public synonym to be dropped does not exist 
+
+
+drop view           STATS$V_$FILESTATXS
+*
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+drop public synonym  STATS$V$FILESTATXS
+                     *
+ERROR at line 1:
+ORA-01432: public synonym to be dropped does not exist 
+
+
+drop view           STATS$V_$SQLXS
+*
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+drop public synonym  STATS$V$SQLXS
+                     *
+ERROR at line 1:
+ORA-01432: public synonym to be dropped does not exist 
+
+
+drop view           STATS$V_$TEMPSTATXS
+*
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+drop public synonym  STATS$V$TEMPSTATXS
+                     *
+ERROR at line 1:
+ORA-01432: public synonym to be dropped does not exist 
+
+
+drop view           STATS$V_$SQLSTATS_SUMMARY
+*
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+drop public synonym  STATS$V$SQLSTATS_SUMMARY
+                     *
+ERROR at line 1:
+ORA-01432: public synonym to be dropped does not exist 
+
+
+
+User dropped.
+
+
+NOTE:
+SPDUSR complete. Please check spdusr.lis for any errors.
+

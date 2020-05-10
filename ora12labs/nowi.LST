@@ -1,0 +1,12 @@
+SYS (nowi) >/
+
+C:\APP\JRICHARD\ORADATA\NOWI\SYSTEM01.DBF                                                                                           
+C:\APP\JRICHARD\ORADATA\NOWI\SYSAUX01.DBF                                                                                           
+C:\APP\JRICHARD\ORADATA\NOWI\UNDOTBS01.DBF                                                                                          
+C:\APP\JRICHARD\ORADATA\NOWI\USERS01.DBF                                                                                            
+C:\APP\JRICHARD\ORADATA\NOWI\EXAMPLE01.DBF                                                                                          
+
+5 rows selected.
+
+SYS (nowi) >
+SYS (nowi) >spool off

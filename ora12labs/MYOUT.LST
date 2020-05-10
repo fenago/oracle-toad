@@ -1,0 +1,43 @@
+SQL> select * from dba_tablespaces;
+
+TABLESPACE_NAME                INITIAL_EXTENT NEXT_EXTENT MIN_EXTENTS MAX_EXTENTS PCT_INCREASE      
+------------------------------ -------------- ----------- ----------- ----------- ------------      
+STATUS    CONTENTS                                                                                  
+--------- ---------                                                                                 
+SYSTEM                                  16384       16384           1         505           50      
+ONLINE    PERMANENT                                                                                 
+                                                                                                    
+MSRBS                                  614400      614400           1         505            0      
+ONLINE    PERMANENT                                                                                 
+                                                                                                    
+MSTEMP                                 204800      204800           1         505            0      
+ONLINE    PERMANENT                                                                                 
+                                                                                                    
+DES2                                    40960       40960           1         505           15      
+ONLINE    PERMANENT                                                                                 
+                                                                                                    
+DES2_I                                  40960       40960           1         505           15      
+ONLINE    PERMANENT                                                                                 
+                                                                                                    
+USERS_DATA                              40960       40960           1         505           50      
+ONLINE    PERMANENT                                                                                 
+                                                                                                    
+USERS_INDEX                             40960       40960           1         505           50      
+
+TABLESPACE_NAME                INITIAL_EXTENT NEXT_EXTENT MIN_EXTENTS MAX_EXTENTS PCT_INCREASE      
+------------------------------ -------------- ----------- ----------- ----------- ------------      
+STATUS    CONTENTS                                                                                  
+--------- ---------                                                                                 
+ONLINE    PERMANENT                                                                                 
+                                                                                                    
+PM_MS_D01                              131072      131072           1         500           10      
+ONLINE    PERMANENT                                                                                 
+                                                                                                    
+PM_MS_I01                              131072      131072           1         500           10      
+ONLINE    PERMANENT                                                                                 
+                                                                                                    
+
+9 rows selected.
+
+ real: 1613
+SQL> spool off;

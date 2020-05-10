@@ -1,0 +1,8 @@
+CREATE OR REPLACE PROCEDURE modify_PHONE
+(V_PHONE_NO in out varchar2(8))
+IS
+BEGIN
+  V_PHONE_NO := SUBSTR(V_PHONE_NO,1,3)||'-'||SUBSTR(V_PHONE_NO,4,4);
+END modify_PHONE;
+/
+

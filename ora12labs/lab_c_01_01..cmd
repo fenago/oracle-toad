@@ -1,0 +1,1 @@
+copy c:\oracle\product\10.2.0\db_1\network\admin\tnsnames.ora old_tnsnames.ora

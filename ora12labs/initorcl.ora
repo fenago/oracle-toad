@@ -1,0 +1,62 @@
+##############################################################################
+# Copyright (c) 1991, 2001, 2002 by Oracle Corporation
+##############################################################################
+ 
+###########################################
+# Cache and I/O
+###########################################
+db_block_size=8192
+ 
+###########################################
+# Cursors and Library Cache
+###########################################
+open_cursors=300
+ 
+###########################################
+# Database Identification
+###########################################
+db_domain=""
+db_name=orcl
+ 
+###########################################
+# File Configuration
+###########################################
+control_files=("C:\app\richardjerry\oradata\orcl\control01.ctl", "C:\app\richardjerry\flash_recovery_area\orcl\control02.ctl")
+db_recovery_file_dest=C:\app\richardjerry\flash_recovery_area
+db_recovery_file_dest_size=4039114752
+ 
+###########################################
+# Miscellaneous
+###########################################
+compatible=11.2.0.0.0
+diagnostic_dest=C:\app\richardjerry
+memory_target=1233125376
+ 
+###########################################
+# Network Registration
+###########################################
+local_listener=LISTENER_ORCL
+ 
+###########################################
+# Processes and Sessions
+###########################################
+processes=150
+ 
+###########################################
+# Security and Auditing
+###########################################
+audit_file_dest=C:\app\richardjerry\admin\orcl\adump
+audit_trail=db
+remote_login_passwordfile=EXCLUSIVE
+ 
+###########################################
+# Shared Server
+###########################################
+dispatchers="(PROTOCOL=TCP) (SERVICE=orclXDB)"
+ 
+###########################################
+# System Managed Undo and Rollback Segments
+###########################################
+undo_tablespace=UNDOTBS1
+ 
+ 

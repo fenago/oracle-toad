@@ -1,0 +1,183 @@
+
+TKPROF: Release 11.2.0.1.0 - Development on Mon Apr 18 20:39:48 2011
+
+Copyright (c) 1982, 2009, Oracle and/or its affiliates.  All rights reserved.
+
+Trace file: orcl_ora_6172.trc
+Sort options: default
+
+********************************************************************************
+count    = number of times OCI procedure was executed
+cpu      = cpu time in seconds executing 
+elapsed  = elapsed time in seconds executing
+disk     = number of physical reads of buffers from disk
+query    = number of buffers gotten for consistent read
+current  = number of buffers gotten in current mode (usually for update)
+rows     = number of rows processed by the fetch or execute call
+********************************************************************************
+
+SQL ID: 4tk6t8tfsfqbf
+Plan Hash: 0
+alter session set sql_trace=true
+
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        0      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        0      0.00       0.00          0          0          0           0
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        1      0.00       0.00          0          0          0           0
+
+Misses in library cache during parse: 0
+Misses in library cache during execute: 1
+Optimizer mode: ALL_ROWS
+Parsing user id: 92  
+********************************************************************************
+
+SQL ID: 9babjv8yq8ru3
+Plan Hash: 0
+BEGIN DBMS_OUTPUT.GET_LINES(:LINES, :NUMLINES); END;
+
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        2      0.00       0.00          0          0          0           0
+Execute      2      0.00       0.00          0          3          0           2
+Fetch        0      0.00       0.00          0          0          0           0
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        4      0.00       0.00          0          3          0           2
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 92  
+********************************************************************************
+
+SQL ID: 0b1wrs0g6jwjc
+Plan Hash: 264525480
+SELECT /* OPT_DYN_SAMP */ /*+ ALL_ROWS IGNORE_WHERE_CLAUSE 
+  NO_PARALLEL(SAMPLESUB) opt_param('parallel_execution_enabled', 'false') 
+  NO_PARALLEL_INDEX(SAMPLESUB) NO_SQL_TUNE */ NVL(SUM(C1),:"SYS_B_0"), 
+  NVL(SUM(C2),:"SYS_B_1"), COUNT(DISTINCT C3), NVL(SUM(CASE WHEN C3 IS NULL 
+  THEN :"SYS_B_2" ELSE :"SYS_B_3" END),:"SYS_B_4") 
+FROM
+ (SELECT /*+ NO_PARALLEL("B") FULL("B") NO_PARALLEL_INDEX("B") */ :"SYS_B_5" 
+  AS C1, :"SYS_B_6" AS C2, "B"."SSN_SM" AS C3 FROM "BIG_PERSON" SAMPLE BLOCK 
+  (:"SYS_B_7" , :"SYS_B_8") SEED (:"SYS_B_9") "B") SAMPLESUB
+
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.01       0.04          0          0          0           0
+Fetch        1      0.01       0.01          0         65          0           1
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        3      0.03       0.06          0         65          0           1
+
+Misses in library cache during parse: 1
+Misses in library cache during execute: 1
+Optimizer mode: ALL_ROWS
+Parsing user id: 92     (recursive depth: 1)
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+      1  SORT AGGREGATE (cr=65 pr=0 pw=0 time=0 us)
+   5746   VIEW  VW_DAG_0 (cr=65 pr=0 pw=0 time=33321 us cost=20 size=231570 card=5146)
+   5746    HASH GROUP BY (cr=65 pr=0 pw=0 time=12894 us cost=20 size=92628 card=5146)
+   5848     TABLE ACCESS SAMPLE BIG_PERSON (cr=65 pr=0 pw=0 time=12329 us cost=19 size=92628 card=5146)
+
+********************************************************************************
+
+select b.ssn_sm,b.dob,b.name_ind,b.states_us,
+                  u.uname,u.upc,p.gr_abbr_code,p.date_rec_stat
+           from big_person b, pers_unit_tbl u, pers_svcmbr_tbl p
+           where b.ssn_sm = p.ssn_sm and
+           p.upc = u.upc
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.02          0          1          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      480      0.06       0.06          0        802          0        7175
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      482      0.06       0.08          0        803          0        7175
+
+Misses in library cache during parse: 1
+Optimizer mode: ALL_ROWS
+Parsing user id: 92  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   7175  HASH JOIN  (cr=802 pr=0 pw=0 time=47655 us cost=97 size=635812 card=6911)
+   6899   TABLE ACCESS FULL BIG_PERSON (cr=76 pr=0 pw=0 time=10857 us cost=22 size=223608 card=6776)
+   6899   HASH JOIN  (cr=726 pr=0 pw=0 time=71713 us cost=74 size=407041 card=6899)
+    130    TABLE ACCESS FULL PERS_UNIT_TBL (cr=5 pr=0 pw=0 time=193 us cost=3 size=3770 card=130)
+   6899    TABLE ACCESS FULL PERS_SVCMBR_TBL (cr=721 pr=0 pw=0 time=28633 us cost=70 size=206970 card=6899)
+
+********************************************************************************
+
+SQL ID: aam2chsgpj7mb
+Plan Hash: 0
+alter session set sql_trace=false
+
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.01       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        0      0.00       0.00          0          0          0           0
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        2      0.01       0.00          0          0          0           0
+
+Misses in library cache during parse: 1
+Optimizer mode: ALL_ROWS
+Parsing user id: 92  
+
+
+
+********************************************************************************
+
+OVERALL TOTALS FOR ALL NON-RECURSIVE STATEMENTS
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        4      0.01       0.02          0          1          0           0
+Execute      5      0.00       0.00          0          3          0           2
+Fetch      480      0.06       0.06          0        802          0        7175
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      489      0.07       0.08          0        806          0        7177
+
+Misses in library cache during parse: 2
+Misses in library cache during execute: 1
+
+
+OVERALL TOTALS FOR ALL RECURSIVE STATEMENTS
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.01       0.04          0          0          0           0
+Fetch        1      0.01       0.01          0         65          0           1
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        3      0.03       0.06          0         65          0           1
+
+Misses in library cache during parse: 1
+Misses in library cache during execute: 1
+
+    6  user  SQL statements in session.
+    0  internal SQL statements in session.
+    6  SQL statements in session.
+********************************************************************************
+Trace file: orcl_ora_6172.trc
+Trace file compatibility: 11.1.0.7
+Sort options: default
+
+       1  session in tracefile.
+       6  user  SQL statements in trace file.
+       0  internal SQL statements in trace file.
+       6  SQL statements in trace file.
+       5  unique SQL statements in trace file.
+     568  lines in trace file.
+      25  elapsed seconds in trace file.
+
+

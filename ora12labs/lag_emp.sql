@@ -1,0 +1,7 @@
+SELECT deptno, empno, sal,
+LEAD(sal, 1, 0) OVER (PARTITION BY deptno ORDER BY sal DESC NULLS LAST) NEXT_LOWER_SAL,
+LAG(sal, 1, 0) OVER (PARTITION BY deptno ORDER BY sal DESC NULLS LAST) PREV_HIGHER_SAL
+FROM emp
+WHERE deptno IN (10, 20)
+ORDER BY deptno, sal DESC
+/

@@ -1,0 +1,5 @@
+select decode(line,1,'CREATE OR REPLACE '||TEXT,TEXT)
+    FROM all_SOURCE
+    WHERE NAME = UPPER('&MODULE_NAME')
+   ORDER BY NAME,TYPE,LINE
+/

@@ -1,0 +1,75 @@
+LAB 6 - MORE ABOUT CREATING TABLES AND INDEXES
+ 
+Create 7 tables in the appropriate tablespace.  The seven tables are called:  
+PRESIDENT, ELECTION, ADMIN_PR_VP, ADMINISTRATION,  
+PRES_HOBBY, PRES_MARRIAGE, STATE.  See pres.sql.  The specs for 
+these tables can be found on subsequent pages of this lab.  Remember to check 
+the sample against the specs to make sure they match up. Table 
+Specifications:
+
+We want to collect these items of data about presidents of the United States into 
+these tables:
+									         	     NULLS
+ITEM				 		TYPE		LENGTH	     ALLOWED
+================================================================
+PRESIDENT NAME			CHAR		20			NO
+YEAR BORN			SMALLINT				NO
+NUMBER YEARS	SERVED		SMALLINT				NO
+AGE AT DEATH			SMALLINT				YES
+PARTY				CHAR		20			NO
+STATE BORN			CHAR		20			NO
+STATE				CHAR		20			NO
+YEAR STATE ENTERED U.S.		SMALLINT				NO
+ADMINISTRATION STATE ENTERED	SMALLINT				YES
+ADMINISTRATION NUMBER		SMALLINT				NO
+YEAR INAUGURATED		SMALLINT				NO
+VICE-PRESIDENT NAME		CHAR		20			NO
+PRESIDENT'S HOBBIES		CHAR		20			YES
+PRESIDENT'S SPOUSE		CHAR		20			YES
+YEAR MARRIED			SMALLINT				YES
+PRESIDENT'S AGE AT MARRIAGE	sMALLINT				YES
+SPOUSE'S AGE AT MARRIAGE	SMALLINT				YES
+NUMBER OF CHILDREN		SMALLINT				YES
+ELECTION YEAR			SMALLINT				NO
+CANDIDATE			CHAR		20			NO
+VOTES				SMALLINT				NO
+WINNER/LOSER INDICATOR		cHAR		1			NO
+
+
+
+LAB 6 - MORE ABOUT CREATING TABLES AND INDEXES
+
+
+ 
+
+TABLE COLUMN NAMES AND RELATIONSHIPS
+
+	The logical data base design process suggest tables with the following
+	columns:
+
+	PRESIDENT:
+
+	pres_name, birth_yr, yrs_serv,death_age,party,state_born
+
+	ADMINISTRATION:
+
+	admin_nr, pres_name,year_inaugurated
+
+	ADMIN_PR_VP:
+
+	admin_nr, pres_name, vice_pres_name
+
+	STATE:
+
+	state, admin_entered,year_entered
+
+	PRES_HOBBY:
+
+	pres_name,hobby
+
+	PRES_MARRIAGE
+
+	pres_name,spouse_name,pr_age,sp_age,nr_children,mar_year
+
+	ELECTION:
+	election_year,candidate,votes,winner_loser_indic

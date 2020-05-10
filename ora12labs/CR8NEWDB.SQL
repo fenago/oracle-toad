@@ -1,0 +1,11 @@
+CONNECT SYS/cai1 AS SYSDBA
+STARTUP NOMOUNT pfile=init.ora
+CREATE DATABASE oradb
+DATAFILE 'c:\9i\dbs\system01.dbf' size 80M reuse
+LOGFILE  'c:\oracle8i\redo01.log' size 2M reuse,
+         'c:\oracle\redo02.log' size 2M reuse
+CHARACTER SET "WE8ISO8859P1"
+NATIONAL CHARACTER SET "UTF8"
+EXTENT MANAGEMENT LOCAL
+DEFAULT TEMPORARY TABLESPACE mytemp TEMPFILE 'temp.f' SIZE 1000M
+;

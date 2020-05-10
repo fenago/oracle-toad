@@ -1,0 +1,5 @@
+UPDATE STAFF
+            SET SALARY = SALARY * 1.10
+            WHERE YEARS =
+            (SELECT MAX(YEARS) FROM STAFF)
+/

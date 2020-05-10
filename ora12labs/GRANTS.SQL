@@ -1,0 +1,13 @@
+grant execute on dbms_lock to repos_owner;
+grant execute on dbms_pipe to repos_owner;
+grant create table to repos_owner;
+grant create view to repos_owner;
+grant create procedure to repos_owner;
+grant create synonym to repos_owner;
+grant create sequence to repos_owner;
+grant select on sys.v_$nls_parameters to repos_owner with grant option;
+grant select on sys.v_$parameter to repos_owner;
+grant select on dba_rollback_segs to repos_owner;
+grant select on dba_segments to repos_owner;
+grant create any synonym to repos_owner;
+grant drop any synonym to repos_owner;

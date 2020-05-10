@@ -1,0 +1,57 @@
+##############################################################################
+# Copyright (c) 1991, 2001, 2002 by Oracle Corporation
+##############################################################################
+ 
+###########################################
+# Cache and I/O
+###########################################
+db_block_size=8192
+ 
+###########################################
+# Cursors and Library Cache
+###########################################
+open_cursors=300
+ 
+###########################################
+# Database Identification
+###########################################
+db_domain=""
+db_name=winorcl
+ 
+###########################################
+# File Configuration
+###########################################
+control_files=("C:\app\Administrator\oradata\winorcl\control01.ctl", "C:\app\Administrator\flash_recovery_area\winorcl\control02.ctl")
+db_recovery_file_dest=C:\app\Administrator\flash_recovery_area
+db_recovery_file_dest_size=4102029312
+ 
+###########################################
+# Miscellaneous
+###########################################
+compatible=11.2.0.0.0
+diagnostic_dest=C:\app\Administrator
+memory_target=3403677696
+ 
+###########################################
+# Processes and Sessions
+###########################################
+processes=150
+ 
+###########################################
+# Security and Auditing
+###########################################
+audit_file_dest=C:\app\Administrator\admin\winorcl\adump
+audit_trail=db
+remote_login_passwordfile=EXCLUSIVE
+ 
+###########################################
+# Shared Server
+###########################################
+dispatchers="(PROTOCOL=TCP) (SERVICE=winorclXDB)"
+ 
+###########################################
+# System Managed Undo and Rollback Segments
+###########################################
+undo_tablespace=UNDOTBS1
+ 
+ 

@@ -1,0 +1,905 @@
+Dropping old versions (if any)
+drop public synonym    STATS$SNAPSHOT_ID
+                       *
+ERROR at line 1:
+ORA-01432: public synonym to be dropped does not exist 
+
+
+drop sequence PERFSTAT.STATS$SNAPSHOT_ID
+                       *
+ERROR at line 1:
+ORA-02289: sequence does not exist 
+
+
+drop public synonym  STATS$FILESTATXS
+                     *
+ERROR at line 1:
+ORA-01432: public synonym to be dropped does not exist 
+
+
+drop table  PERFSTAT.STATS$FILESTATXS
+                     *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+drop public synonym  STATS$TEMPSTATXS
+                     *
+ERROR at line 1:
+ORA-01432: public synonym to be dropped does not exist 
+
+
+drop table  PERFSTAT.STATS$TEMPSTATXS
+                     *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+drop public synonym  STATS$LATCH
+                     *
+ERROR at line 1:
+ORA-01432: public synonym to be dropped does not exist 
+
+
+drop table  PERFSTAT.STATS$LATCH
+                     *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+drop public synonym  STATS$LATCH_MISSES_SUMMARY
+                     *
+ERROR at line 1:
+ORA-01432: public synonym to be dropped does not exist 
+
+
+drop table  PERFSTAT.STATS$LATCH_MISSES_SUMMARY
+                     *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+drop public synonym  STATS$LATCH_CHILDREN
+                     *
+ERROR at line 1:
+ORA-01432: public synonym to be dropped does not exist 
+
+
+drop table  PERFSTAT.STATS$LATCH_CHILDREN
+                     *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+drop public synonym  STATS$LATCH_PARENT
+                     *
+ERROR at line 1:
+ORA-01432: public synonym to be dropped does not exist 
+
+
+drop table  PERFSTAT.STATS$LATCH_PARENT
+                     *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+drop public synonym  STATS$LIBRARYCACHE
+                     *
+ERROR at line 1:
+ORA-01432: public synonym to be dropped does not exist 
+
+
+drop table  PERFSTAT.STATS$LIBRARYCACHE
+                     *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+drop public synonym  STATS$BUFFER_POOL_STATISTICS
+                     *
+ERROR at line 1:
+ORA-01432: public synonym to be dropped does not exist 
+
+
+drop table  PERFSTAT.STATS$BUFFER_POOL_STATISTICS
+                     *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+drop public synonym  STATS$ROLLSTAT
+                     *
+ERROR at line 1:
+ORA-01432: public synonym to be dropped does not exist 
+
+
+drop table  PERFSTAT.STATS$ROLLSTAT
+                     *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+drop public synonym  STATS$ROWCACHE_SUMMARY
+                     *
+ERROR at line 1:
+ORA-01432: public synonym to be dropped does not exist 
+
+
+drop table  PERFSTAT.STATS$ROWCACHE_SUMMARY
+                     *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+drop public synonym  STATS$SGA
+                     *
+ERROR at line 1:
+ORA-01432: public synonym to be dropped does not exist 
+
+
+drop table  PERFSTAT.STATS$SGA
+                     *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+drop public synonym  STATS$SGASTAT
+                     *
+ERROR at line 1:
+ORA-01432: public synonym to be dropped does not exist 
+
+
+drop table  PERFSTAT.STATS$SGASTAT
+                     *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+drop public synonym  STATS$SYSSTAT
+                     *
+ERROR at line 1:
+ORA-01432: public synonym to be dropped does not exist 
+
+
+drop table  PERFSTAT.STATS$SYSSTAT
+                     *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+drop public synonym  STATS$SESSTAT
+                     *
+ERROR at line 1:
+ORA-01432: public synonym to be dropped does not exist 
+
+
+drop table  PERFSTAT.STATS$SESSTAT
+                     *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+drop public synonym  STATS$SYSTEM_EVENT
+                     *
+ERROR at line 1:
+ORA-01432: public synonym to be dropped does not exist 
+
+
+drop table  PERFSTAT.STATS$SYSTEM_EVENT
+                     *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+drop public synonym  STATS$SESSION_EVENT
+                     *
+ERROR at line 1:
+ORA-01432: public synonym to be dropped does not exist 
+
+
+drop table  PERFSTAT.STATS$SESSION_EVENT
+                     *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+drop public synonym  STATS$WAITSTAT
+                     *
+ERROR at line 1:
+ORA-01432: public synonym to be dropped does not exist 
+
+
+drop table  PERFSTAT.STATS$WAITSTAT
+                     *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+drop public synonym  STATS$ENQUEUE_STATISTICS
+                     *
+ERROR at line 1:
+ORA-01432: public synonym to be dropped does not exist 
+
+
+drop table  PERFSTAT.STATS$ENQUEUE_STATISTICS
+                     *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+drop public synonym  STATS$SQL_SUMMARY
+                     *
+ERROR at line 1:
+ORA-01432: public synonym to be dropped does not exist 
+
+
+drop table  PERFSTAT.STATS$SQL_SUMMARY
+                     *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+drop public synonym  STATS$SQL_STATISTICS
+                     *
+ERROR at line 1:
+ORA-01432: public synonym to be dropped does not exist 
+
+
+drop table  PERFSTAT.STATS$SQL_STATISTICS
+                     *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+drop public synonym  STATS$SQLTEXT
+                     *
+ERROR at line 1:
+ORA-01432: public synonym to be dropped does not exist 
+
+
+drop table  PERFSTAT.STATS$SQLTEXT
+                     *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+drop public synonym  STATS$PARAMETER
+                     *
+ERROR at line 1:
+ORA-01432: public synonym to be dropped does not exist 
+
+
+drop table  PERFSTAT.STATS$PARAMETER
+                     *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+drop public synonym  STATS$STATSPACK_PARAMETER
+                     *
+ERROR at line 1:
+ORA-01432: public synonym to be dropped does not exist 
+
+
+drop table  PERFSTAT.STATS$STATSPACK_PARAMETER
+                     *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+drop public synonym  STATS$IDLE_EVENT
+                     *
+ERROR at line 1:
+ORA-01432: public synonym to be dropped does not exist 
+
+
+drop table  PERFSTAT.STATS$IDLE_EVENT
+                     *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+drop public synonym  STATS$RESOURCE_LIMIT
+                     *
+ERROR at line 1:
+ORA-01432: public synonym to be dropped does not exist 
+
+
+drop table  PERFSTAT.STATS$RESOURCE_LIMIT
+                     *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+drop public synonym  STATS$DLM_MISC
+                     *
+ERROR at line 1:
+ORA-01432: public synonym to be dropped does not exist 
+
+
+drop table  PERFSTAT.STATS$DLM_MISC
+                     *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+drop public synonym  STATS$UNDOSTAT
+                     *
+ERROR at line 1:
+ORA-01432: public synonym to be dropped does not exist 
+
+
+drop table  PERFSTAT.STATS$UNDOSTAT
+                     *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+drop public synonym  STATS$SQL_PLAN
+                     *
+ERROR at line 1:
+ORA-01432: public synonym to be dropped does not exist 
+
+
+drop table  PERFSTAT.STATS$SQL_PLAN
+                     *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+drop public synonym  STATS$SQL_PLAN_USAGE
+                     *
+ERROR at line 1:
+ORA-01432: public synonym to be dropped does not exist 
+
+
+drop table  PERFSTAT.STATS$SQL_PLAN_USAGE
+                     *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+drop public synonym  STATS$SEG_STAT_OBJ
+                     *
+ERROR at line 1:
+ORA-01432: public synonym to be dropped does not exist 
+
+
+drop table  PERFSTAT.STATS$SEG_STAT_OBJ
+                     *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+drop public synonym  STATS$SEG_STAT
+                     *
+ERROR at line 1:
+ORA-01432: public synonym to be dropped does not exist 
+
+
+drop table  PERFSTAT.STATS$SEG_STAT
+                     *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+drop public synonym  STATS$DB_CACHE_ADVICE
+                     *
+ERROR at line 1:
+ORA-01432: public synonym to be dropped does not exist 
+
+
+drop table  PERFSTAT.STATS$DB_CACHE_ADVICE
+                     *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+drop public synonym  STATS$PGASTAT
+                     *
+ERROR at line 1:
+ORA-01432: public synonym to be dropped does not exist 
+
+
+drop table  PERFSTAT.STATS$PGASTAT
+                     *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+drop public synonym  STATS$INSTANCE_RECOVERY
+                     *
+ERROR at line 1:
+ORA-01432: public synonym to be dropped does not exist 
+
+
+drop table  PERFSTAT.STATS$INSTANCE_RECOVERY
+                     *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+drop public synonym  STATS$SHARED_POOL_ADVICE
+                     *
+ERROR at line 1:
+ORA-01432: public synonym to be dropped does not exist 
+
+
+drop table  PERFSTAT.STATS$SHARED_POOL_ADVICE
+                     *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+drop public synonym  STATS$SQL_WORKAREA_HISTOGRAM
+                     *
+ERROR at line 1:
+ORA-01432: public synonym to be dropped does not exist 
+
+
+drop table  PERFSTAT.STATS$SQL_WORKAREA_HISTOGRAM
+                     *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+drop public synonym  STATS$PGA_TARGET_ADVICE
+                     *
+ERROR at line 1:
+ORA-01432: public synonym to be dropped does not exist 
+
+
+drop table  PERFSTAT.STATS$PGA_TARGET_ADVICE
+                     *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+drop public synonym  STATS$JAVA_POOL_ADVICE
+                     *
+ERROR at line 1:
+ORA-01432: public synonym to be dropped does not exist 
+
+
+drop table  PERFSTAT.STATS$JAVA_POOL_ADVICE
+                     *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+drop public synonym  STATS$THREAD
+                     *
+ERROR at line 1:
+ORA-01432: public synonym to be dropped does not exist 
+
+
+drop table  PERFSTAT.STATS$THREAD
+                     *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+drop public synonym  STATS$CR_BLOCK_SERVER
+                     *
+ERROR at line 1:
+ORA-01432: public synonym to be dropped does not exist 
+
+
+drop table  PERFSTAT.STATS$CR_BLOCK_SERVER
+                     *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+drop public synonym  STATS$CURRENT_BLOCK_SERVER
+                     *
+ERROR at line 1:
+ORA-01432: public synonym to be dropped does not exist 
+
+
+drop table  PERFSTAT.STATS$CURRENT_BLOCK_SERVER
+                     *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+drop public synonym  STATS$INSTANCE_CACHE_TRANSFER
+                     *
+ERROR at line 1:
+ORA-01432: public synonym to be dropped does not exist 
+
+
+drop table  PERFSTAT.STATS$INSTANCE_CACHE_TRANSFER
+                     *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+drop public synonym  STATS$FILE_HISTOGRAM
+                     *
+ERROR at line 1:
+ORA-01432: public synonym to be dropped does not exist 
+
+
+drop table  PERFSTAT.STATS$FILE_HISTOGRAM
+                     *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+drop public synonym  STATS$EVENT_HISTOGRAM
+                     *
+ERROR at line 1:
+ORA-01432: public synonym to be dropped does not exist 
+
+
+drop table  PERFSTAT.STATS$EVENT_HISTOGRAM
+                     *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+drop public synonym  STATS$TIME_MODEL_STATNAME
+                     *
+ERROR at line 1:
+ORA-01432: public synonym to be dropped does not exist 
+
+
+drop table  PERFSTAT.STATS$TIME_MODEL_STATNAME
+                     *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+drop public synonym  STATS$SYS_TIME_MODEL
+                     *
+ERROR at line 1:
+ORA-01432: public synonym to be dropped does not exist 
+
+
+drop table  PERFSTAT.STATS$SYS_TIME_MODEL
+                     *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+drop public synonym  STATS$SESS_TIME_MODEL
+                     *
+ERROR at line 1:
+ORA-01432: public synonym to be dropped does not exist 
+
+
+drop table  PERFSTAT.STATS$SESS_TIME_MODEL
+                     *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+drop public synonym  STATS$STREAMS_CAPTURE
+                     *
+ERROR at line 1:
+ORA-01432: public synonym to be dropped does not exist 
+
+
+drop table  PERFSTAT.STATS$STREAMS_CAPTURE
+                     *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+drop public synonym  STATS$STREAMS_APPLY_SUM
+                     *
+ERROR at line 1:
+ORA-01432: public synonym to be dropped does not exist 
+
+
+drop table  PERFSTAT.STATS$STREAMS_APPLY_SUM
+                     *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+drop public synonym  STATS$PROPAGATION_SENDER
+                     *
+ERROR at line 1:
+ORA-01432: public synonym to be dropped does not exist 
+
+
+drop table  PERFSTAT.STATS$PROPAGATION_SENDER
+                     *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+drop public synonym  STATS$PROPAGATION_RECEIVER
+                     *
+ERROR at line 1:
+ORA-01432: public synonym to be dropped does not exist 
+
+
+drop table  PERFSTAT.STATS$PROPAGATION_RECEIVER
+                     *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+drop public synonym  STATS$BUFFERED_QUEUES
+                     *
+ERROR at line 1:
+ORA-01432: public synonym to be dropped does not exist 
+
+
+drop table  PERFSTAT.STATS$BUFFERED_QUEUES
+                     *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+drop public synonym  STATS$BUFFERED_SUBSCRIBERS
+                     *
+ERROR at line 1:
+ORA-01432: public synonym to be dropped does not exist 
+
+
+drop table  PERFSTAT.STATS$BUFFERED_SUBSCRIBERS
+                     *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+drop public synonym  STATS$RULE_SET
+                     *
+ERROR at line 1:
+ORA-01432: public synonym to be dropped does not exist 
+
+
+drop table  PERFSTAT.STATS$RULE_SET
+                     *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+drop public synonym  STATS$OSSTAT
+                     *
+ERROR at line 1:
+ORA-01432: public synonym to be dropped does not exist 
+
+
+drop table  PERFSTAT.STATS$OSSTAT
+                     *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+drop public synonym  STATS$OSSTATNAME
+                     *
+ERROR at line 1:
+ORA-01432: public synonym to be dropped does not exist 
+
+
+drop table  PERFSTAT.STATS$OSSTATNAME
+                     *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+drop public synonym  STATS$PROCESS_ROLLUP
+                     *
+ERROR at line 1:
+ORA-01432: public synonym to be dropped does not exist 
+
+
+drop table  PERFSTAT.STATS$PROCESS_ROLLUP
+                     *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+drop public synonym  STATS$PROCESS_MEMORY_ROLLUP
+                     *
+ERROR at line 1:
+ORA-01432: public synonym to be dropped does not exist 
+
+
+drop table  PERFSTAT.STATS$PROCESS_MEMORY_ROLLUP
+                     *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+drop public synonym  STATS$STREAMS_POOL_ADVICE
+                     *
+ERROR at line 1:
+ORA-01432: public synonym to be dropped does not exist 
+
+
+drop table  PERFSTAT.STATS$STREAMS_POOL_ADVICE
+                     *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+drop public synonym  STATS$SGA_TARGET_ADVICE
+                     *
+ERROR at line 1:
+ORA-01432: public synonym to be dropped does not exist 
+
+
+drop table  PERFSTAT.STATS$SGA_TARGET_ADVICE
+                     *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+drop public synonym  STATS$MUTEX_SLEEP
+                     *
+ERROR at line 1:
+ORA-01432: public synonym to be dropped does not exist 
+
+
+drop table  PERFSTAT.STATS$MUTEX_SLEEP
+                     *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+drop public synonym  STATS$DYNAMIC_REMASTER_STATS
+                     *
+ERROR at line 1:
+ORA-01432: public synonym to be dropped does not exist 
+
+
+drop table  PERFSTAT.STATS$DYNAMIC_REMASTER_STATS
+                     *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+drop public synonym  STATS$TEMP_SQLSTATS
+                     *
+ERROR at line 1:
+ORA-01432: public synonym to be dropped does not exist 
+
+
+drop table  PERFSTAT.STATS$TEMP_SQLSTATS
+                     *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+drop public synonym  STATS$BG_EVENT_SUMMARY
+                     *
+ERROR at line 1:
+ORA-01432: public synonym to be dropped does not exist 
+
+
+drop view   PERFSTAT.STATS$BG_EVENT_SUMMARY
+*
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+drop public synonym  STATS$IOSTAT_FUNCTION
+                     *
+ERROR at line 1:
+ORA-01432: public synonym to be dropped does not exist 
+
+
+drop table  PERFSTAT.STATS$IOSTAT_FUNCTION
+                     *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+drop public synonym  STATS$IOSTAT_FUNCTION_NAME
+                     *
+ERROR at line 1:
+ORA-01432: public synonym to be dropped does not exist 
+
+
+drop table  PERFSTAT.STATS$IOSTAT_FUNCTION_NAME
+                     *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+drop public synonym  STATS$MEMORY_TARGET_ADVICE
+                     *
+ERROR at line 1:
+ORA-01432: public synonym to be dropped does not exist 
+
+
+drop table  PERFSTAT.STATS$MEMORY_TARGET_ADVICE
+                     *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+drop public synonym  STATS$MEMORY_RESIZE_OPS
+                     *
+ERROR at line 1:
+ORA-01432: public synonym to be dropped does not exist 
+
+
+drop table  PERFSTAT.STATS$MEMORY_RESIZE_OPS
+                     *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+drop public synonym  STATS$MEMORY_DYNAMIC_COMPS
+                     *
+ERROR at line 1:
+ORA-01432: public synonym to be dropped does not exist 
+
+
+drop table  PERFSTAT.STATS$MEMORY_DYNAMIC_COMPS
+                     *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+drop public synonym STATS$INTERCONNECT_PINGS
+                    *
+ERROR at line 1:
+ORA-01432: public synonym to be dropped does not exist 
+
+
+drop table  PERFSTAT.STATS$INTERCONNECT_PINGS
+                     *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+drop public synonym  STATS$SNAPSHOT
+                     *
+ERROR at line 1:
+ORA-01432: public synonym to be dropped does not exist 
+
+
+drop table  PERFSTAT.STATS$SNAPSHOT
+                     *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+drop public synonym  STATS$LEVEL_DESCRIPTION
+                     *
+ERROR at line 1:
+ORA-01432: public synonym to be dropped does not exist 
+
+
+drop table  PERFSTAT.STATS$LEVEL_DESCRIPTION
+                     *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+drop public synonym  STATS$DATABASE_INSTANCE
+                     *
+ERROR at line 1:
+ORA-01432: public synonym to be dropped does not exist 
+
+
+drop table  PERFSTAT.STATS$DATABASE_INSTANCE
+                     *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+drop public  synonym  STATSPACK
+                      *
+ERROR at line 1:
+ORA-01432: public synonym to be dropped does not exist 
+
+
+drop package PERFSTAT.STATSPACK
+*
+ERROR at line 1:
+ORA-04043: object STATSPACK does not exist 
+
+
+
+NOTE:
+SPDTAB complete. Please check spdtab.lis for any errors.
+

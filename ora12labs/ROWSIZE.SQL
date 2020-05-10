@@ -1,0 +1,4 @@
+ SELECT AVG(VSIZE(DEPTNo)) + AVG(VSIZE(DNAME)) + AVG(VSIZE(loc))  + 
+ + 3 "AVERAGE ROW SIZE"
+ + 2 "ROWID" FROM dept
+/

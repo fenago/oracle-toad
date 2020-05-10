@@ -1,0 +1,947 @@
+SQL> 
+SQL> drop role ora;
+drop role ora
+          *
+ERROR at line 1:
+ORA-01919: role 'ORA' does not exist 
+
+
+SQL> create role ora;
+
+Role created.
+
+SQL> grant alter session to ora;
+
+Grant succeeded.
+
+SQL> grant create session to ora;
+
+Grant succeeded.
+
+SQL> grant create table to ora;
+
+Grant succeeded.
+
+SQL> grant create view to ora;
+
+Grant succeeded.
+
+SQL> grant create sequence to ora;
+
+Grant succeeded.
+
+SQL> grant create synonym to ora;
+
+Grant succeeded.
+
+SQL> grant create procedure to ora;
+
+Grant succeeded.
+
+SQL> grant create trigger to ora;
+
+Grant succeeded.
+
+SQL> grant create type to ora;
+
+Grant succeeded.
+
+SQL> grant query rewrite to ora;
+
+Grant succeeded.
+
+SQL> grant create any index to ora;
+
+Grant succeeded.
+
+SQL> grant create public synonym to ora;
+
+Grant succeeded.
+
+SQL> grant create role to ora;
+
+Grant succeeded.
+
+SQL> grant create user to ora;
+
+Grant succeeded.
+
+SQL> grant create any directory to ora;
+
+Grant succeeded.
+
+SQL> grant drop public synonym to ora;
+
+Grant succeeded.
+
+SQL> 
+SQL> grant execute on sys.dbms_stats to ora;
+
+Grant succeeded.
+
+SQL> grant create job to ora;
+
+Grant succeeded.
+
+SQL> grant manage scheduler to ora;
+
+Grant succeeded.
+
+SQL> grant debug connect session to ora;
+
+Grant succeeded.
+
+SQL> grant debug any procedure to ora;
+
+Grant succeeded.
+
+SQL> grant execute any procedure to ora;
+
+Grant succeeded.
+
+SQL> grant select on v_$parameter TO ora;
+
+Grant succeeded.
+
+SQL> 
+SQL> drop user ora1 cascade;
+drop user ora1 cascade
+          *
+ERROR at line 1:
+ORA-01918: user 'ORA1' does not exist 
+
+
+SQL> create user ora1 identified by ora1;
+
+User created.
+
+SQL> grant ora to ora1;
+
+Grant succeeded.
+
+SQL> alter user ora1 default tablespace users temporary tablespace temp
+  2  quota unlimited on users;
+
+User altered.
+
+SQL> 
+SQL> drop user ora2 cascade;
+drop user ora2 cascade
+          *
+ERROR at line 1:
+ORA-01918: user 'ORA2' does not exist 
+
+
+SQL> create user ora2 identified by ora2;
+
+User created.
+
+SQL> grant ora to ora2;
+
+Grant succeeded.
+
+SQL> alter user ora2 default tablespace users temporary tablespace temp
+  2  quota unlimited on users;
+
+User altered.
+
+SQL> 
+SQL> drop user ora3 cascade;
+drop user ora3 cascade
+          *
+ERROR at line 1:
+ORA-01918: user 'ORA3' does not exist 
+
+
+SQL> create user ora3 identified by ora3;
+
+User created.
+
+SQL> grant ora to ora3;
+
+Grant succeeded.
+
+SQL> alter user ora3 default tablespace users temporary tablespace temp
+  2  quota unlimited on users;
+
+User altered.
+
+SQL> 
+SQL> drop user ora4 cascade;
+drop user ora4 cascade
+          *
+ERROR at line 1:
+ORA-01918: user 'ORA4' does not exist 
+
+
+SQL> create user ora4 identified by ora4;
+
+User created.
+
+SQL> grant ora to ora4;
+
+Grant succeeded.
+
+SQL> alter user ora4 default tablespace users temporary tablespace temp
+  2  quota unlimited on users;
+
+User altered.
+
+SQL> 
+SQL> drop user ora5 cascade;
+drop user ora5 cascade
+          *
+ERROR at line 1:
+ORA-01918: user 'ORA5' does not exist 
+
+
+SQL> create user ora5 identified by ora5;
+
+User created.
+
+SQL> grant ora to ora5;
+
+Grant succeeded.
+
+SQL> alter user ora5 default tablespace users temporary tablespace temp
+  2  quota unlimited on users;
+
+User altered.
+
+SQL> 
+SQL> drop user ora6 cascade;
+drop user ora6 cascade
+          *
+ERROR at line 1:
+ORA-01918: user 'ORA6' does not exist 
+
+
+SQL> create user ora6 identified by ora6;
+
+User created.
+
+SQL> grant ora to ora6;
+
+Grant succeeded.
+
+SQL> alter user ora6 default tablespace users temporary tablespace temp
+  2  quota unlimited on users;
+
+User altered.
+
+SQL> 
+SQL> drop user ora7 cascade;
+drop user ora7 cascade
+          *
+ERROR at line 1:
+ORA-01918: user 'ORA7' does not exist 
+
+
+SQL> create user ora7 identified by ora7;
+
+User created.
+
+SQL> grant ora to ora7;
+
+Grant succeeded.
+
+SQL> alter user ora7 default tablespace users temporary tablespace temp
+  2  quota unlimited on users;
+
+User altered.
+
+SQL> 
+SQL> drop user ora8 cascade;
+drop user ora8 cascade
+          *
+ERROR at line 1:
+ORA-01918: user 'ORA8' does not exist 
+
+
+SQL> create user ora8 identified by ora8;
+
+User created.
+
+SQL> grant ora to ora8;
+
+Grant succeeded.
+
+SQL> alter user ora8 default tablespace users temporary tablespace temp
+  2  quota unlimited on users;
+
+User altered.
+
+SQL> 
+SQL> drop user ora9 cascade;
+drop user ora9 cascade
+          *
+ERROR at line 1:
+ORA-01918: user 'ORA9' does not exist 
+
+
+SQL> create user ora9 identified by ora9;
+
+User created.
+
+SQL> grant ora to ora9;
+
+Grant succeeded.
+
+SQL> alter user ora9 default tablespace users temporary tablespace temp
+  2  quota unlimited on users;
+
+User altered.
+
+SQL> 
+SQL> drop user ora10 cascade;
+drop user ora10 cascade
+          *
+ERROR at line 1:
+ORA-01918: user 'ORA10' does not exist 
+
+
+SQL> create user ora10 identified by ora10;
+
+User created.
+
+SQL> grant ora to ora10;
+
+Grant succeeded.
+
+SQL> alter user ora10 default tablespace users temporary tablespace temp
+  2  quota unlimited on users;
+
+User altered.
+
+SQL> 
+SQL> drop user ora11 cascade;
+drop user ora11 cascade
+          *
+ERROR at line 1:
+ORA-01918: user 'ORA11' does not exist 
+
+
+SQL> create user ora11 identified by ora11;
+
+User created.
+
+SQL> grant ora to ora11;
+
+Grant succeeded.
+
+SQL> alter user ora11 default tablespace users temporary tablespace temp
+  2  quota unlimited on users;
+
+User altered.
+
+SQL> 
+SQL> drop user ora12 cascade;
+drop user ora12 cascade
+          *
+ERROR at line 1:
+ORA-01918: user 'ORA12' does not exist 
+
+
+SQL> create user ora12 identified by ora12;
+
+User created.
+
+SQL> grant ora to ora12;
+
+Grant succeeded.
+
+SQL> alter user ora12 default tablespace users temporary tablespace temp
+  2  quota unlimited on users;
+
+User altered.
+
+SQL> 
+SQL> drop user ora13 cascade;
+drop user ora13 cascade
+          *
+ERROR at line 1:
+ORA-01918: user 'ORA13' does not exist 
+
+
+SQL> create user ora13 identified by ora13;
+
+User created.
+
+SQL> grant ora to ora13;
+
+Grant succeeded.
+
+SQL> alter user ora13 default tablespace users temporary tablespace temp
+  2  quota unlimited on users;
+
+User altered.
+
+SQL> 
+SQL> drop user ora14 cascade;
+drop user ora14 cascade
+          *
+ERROR at line 1:
+ORA-01918: user 'ORA14' does not exist 
+
+
+SQL> create user ora14 identified by ora14;
+
+User created.
+
+SQL> grant ora to ora14;
+
+Grant succeeded.
+
+SQL> alter user ora14 default tablespace users temporary tablespace temp
+  2  quota unlimited on users;
+
+User altered.
+
+SQL> 
+SQL> drop user ora15 cascade;
+drop user ora15 cascade
+          *
+ERROR at line 1:
+ORA-01918: user 'ORA15' does not exist 
+
+
+SQL> create user ora15 identified by ora15;
+
+User created.
+
+SQL> grant ora to ora15;
+
+Grant succeeded.
+
+SQL> alter user ora15 default tablespace users temporary tablespace temp
+  2  quota unlimited on users;
+
+User altered.
+
+SQL> 
+SQL> drop user ora16 cascade;
+drop user ora16 cascade
+          *
+ERROR at line 1:
+ORA-01918: user 'ORA16' does not exist 
+
+
+SQL> create user ora16 identified by ora16;
+
+User created.
+
+SQL> grant ora to ora16;
+
+Grant succeeded.
+
+SQL> alter user ora16 default tablespace users temporary tablespace temp
+  2  quota unlimited on users;
+
+User altered.
+
+SQL> 
+SQL> drop user ora17 cascade;
+drop user ora17 cascade
+          *
+ERROR at line 1:
+ORA-01918: user 'ORA17' does not exist 
+
+
+SQL> create user ora17 identified by ora17;
+
+User created.
+
+SQL> grant ora to ora17;
+
+Grant succeeded.
+
+SQL> alter user ora17 default tablespace users temporary tablespace temp
+  2  quota unlimited on users;
+
+User altered.
+
+SQL> 
+SQL> drop user ora18 cascade;
+drop user ora18 cascade
+          *
+ERROR at line 1:
+ORA-01918: user 'ORA18' does not exist 
+
+
+SQL> create user ora18 identified by ora18;
+
+User created.
+
+SQL> grant ora to ora18;
+
+Grant succeeded.
+
+SQL> alter user ora18 default tablespace users temporary tablespace temp
+  2  quota unlimited on users;
+
+User altered.
+
+SQL> 
+SQL> drop user ora19 cascade;
+drop user ora19 cascade
+          *
+ERROR at line 1:
+ORA-01918: user 'ORA19' does not exist 
+
+
+SQL> create user ora19 identified by ora19;
+
+User created.
+
+SQL> grant ora to ora19;
+
+Grant succeeded.
+
+SQL> alter user ora19 default tablespace users temporary tablespace temp
+  2  quota unlimited on users;
+
+User altered.
+
+SQL> 
+SQL> drop user ora20 cascade;
+drop user ora20 cascade
+          *
+ERROR at line 1:
+ORA-01918: user 'ORA20' does not exist 
+
+
+SQL> create user ora20 identified by ora20;
+
+User created.
+
+SQL> grant ora to ora20;
+
+Grant succeeded.
+
+SQL> alter user ora20 default tablespace users temporary tablespace temp
+  2  quota unlimited on users;
+
+User altered.
+
+SQL> 
+SQL> drop user ora21 cascade;
+drop user ora21 cascade
+          *
+ERROR at line 1:
+ORA-01918: user 'ORA21' does not exist 
+
+
+SQL> create user ora21 identified by ora21;
+
+User created.
+
+SQL> grant ora to ora21;
+
+Grant succeeded.
+
+SQL> alter user ora21 default tablespace users temporary tablespace temp
+  2  quota unlimited on users;
+
+User altered.
+
+SQL> 
+SQL> drop user ora22 cascade;
+drop user ora22 cascade
+          *
+ERROR at line 1:
+ORA-01918: user 'ORA22' does not exist 
+
+
+SQL> create user ora22 identified by ora22;
+
+User created.
+
+SQL> grant ora to ora22;
+
+Grant succeeded.
+
+SQL> alter user ora22 default tablespace users temporary tablespace temp
+  2  quota unlimited on users;
+
+User altered.
+
+SQL> 
+SQL> drop user ora23 cascade;
+drop user ora23 cascade
+          *
+ERROR at line 1:
+ORA-01918: user 'ORA23' does not exist 
+
+
+SQL> create user ora23 identified by ora23;
+
+User created.
+
+SQL> grant ora to ora23;
+
+Grant succeeded.
+
+SQL> alter user ora23 default tablespace users temporary tablespace temp
+  2  quota unlimited on users;
+
+User altered.
+
+SQL> 
+SQL> drop user ora24 cascade;
+drop user ora24 cascade
+          *
+ERROR at line 1:
+ORA-01918: user 'ORA24' does not exist 
+
+
+SQL> create user ora24 identified by ora24;
+
+User created.
+
+SQL> grant ora to ora24;
+
+Grant succeeded.
+
+SQL> alter user ora24 default tablespace users temporary tablespace temp
+  2  quota unlimited on users;
+
+User altered.
+
+SQL> 
+SQL> drop user ora25 cascade;
+drop user ora25 cascade
+          *
+ERROR at line 1:
+ORA-01918: user 'ORA25' does not exist 
+
+
+SQL> create user ora25 identified by ora25;
+
+User created.
+
+SQL> grant ora to ora25;
+
+Grant succeeded.
+
+SQL> alter user ora25 default tablespace users temporary tablespace temp
+  2  quota unlimited on users;
+
+User altered.
+
+SQL> 
+SQL> drop user ora26 cascade;
+drop user ora26 cascade
+          *
+ERROR at line 1:
+ORA-01918: user 'ORA26' does not exist 
+
+
+SQL> create user ora26 identified by ora26;
+
+User created.
+
+SQL> grant ora to ora26;
+
+Grant succeeded.
+
+SQL> alter user ora26 default tablespace users temporary tablespace temp
+  2  quota unlimited on users;
+
+User altered.
+
+SQL> 
+SQL> drop user ora27 cascade;
+drop user ora27 cascade
+          *
+ERROR at line 1:
+ORA-01918: user 'ORA27' does not exist 
+
+
+SQL> create user ora27 identified by ora27;
+
+User created.
+
+SQL> grant ora to ora27;
+
+Grant succeeded.
+
+SQL> alter user ora27 default tablespace users temporary tablespace temp
+  2  quota unlimited on users;
+
+User altered.
+
+SQL> 
+SQL> drop user ora28 cascade;
+drop user ora28 cascade
+          *
+ERROR at line 1:
+ORA-01918: user 'ORA28' does not exist 
+
+
+SQL> create user ora28 identified by ora28;
+
+User created.
+
+SQL> grant ora to ora28;
+
+Grant succeeded.
+
+SQL> alter user ora28 default tablespace users temporary tablespace temp
+  2  quota unlimited on users;
+
+User altered.
+
+SQL> 
+SQL> drop user ora29 cascade;
+drop user ora29 cascade
+          *
+ERROR at line 1:
+ORA-01918: user 'ORA29' does not exist 
+
+
+SQL> create user ora29 identified by ora29;
+
+User created.
+
+SQL> grant ora to ora29;
+
+Grant succeeded.
+
+SQL> alter user ora29 default tablespace users temporary tablespace temp
+  2  quota unlimited on users;
+
+User altered.
+
+SQL> 
+SQL> drop user ora30 cascade;
+drop user ora30 cascade
+          *
+ERROR at line 1:
+ORA-01918: user 'ORA30' does not exist 
+
+
+SQL> create user ora30 identified by ora30;
+
+User created.
+
+SQL> grant ora to ora30;
+
+Grant succeeded.
+
+SQL> alter user ora30 default tablespace users temporary tablespace temp
+  2  quota unlimited on users;
+
+User altered.
+
+SQL> 
+SQL> drop user ora31 cascade;
+drop user ora31 cascade
+          *
+ERROR at line 1:
+ORA-01918: user 'ORA31' does not exist 
+
+
+SQL> create user ora31 identified by ora31;
+
+User created.
+
+SQL> grant ora to ora31;
+
+Grant succeeded.
+
+SQL> alter user ora31 default tablespace users temporary tablespace temp
+  2  quota unlimited on users;
+
+User altered.
+
+SQL> 
+SQL> drop user ora32 cascade;
+drop user ora32 cascade
+          *
+ERROR at line 1:
+ORA-01918: user 'ORA32' does not exist 
+
+
+SQL> create user ora32 identified by ora32;
+
+User created.
+
+SQL> grant ora to ora32;
+
+Grant succeeded.
+
+SQL> alter user ora32 default tablespace users temporary tablespace temp
+  2  quota unlimited on users;
+
+User altered.
+
+SQL> 
+SQL> drop user ora33 cascade;
+drop user ora33 cascade
+          *
+ERROR at line 1:
+ORA-01918: user 'ORA33' does not exist 
+
+
+SQL> create user ora33 identified by ora33;
+
+User created.
+
+SQL> grant ora to ora33;
+
+Grant succeeded.
+
+SQL> alter user ora33 default tablespace users temporary tablespace temp
+  2  quota unlimited on users;
+
+User altered.
+
+SQL> 
+SQL> drop user ora34 cascade;
+drop user ora34 cascade
+          *
+ERROR at line 1:
+ORA-01918: user 'ORA34' does not exist 
+
+
+SQL> create user ora34 identified by ora34;
+
+User created.
+
+SQL> grant ora to ora34;
+
+Grant succeeded.
+
+SQL> alter user ora34 default tablespace users temporary tablespace temp
+  2  quota unlimited on users;
+
+User altered.
+
+SQL> 
+SQL> drop user ora35 cascade;
+drop user ora35 cascade
+          *
+ERROR at line 1:
+ORA-01918: user 'ORA35' does not exist 
+
+
+SQL> create user ora35 identified by ora35;
+
+User created.
+
+SQL> grant ora to ora35;
+
+Grant succeeded.
+
+SQL> alter user ora35 default tablespace users temporary tablespace temp
+  2  quota unlimited on users;
+
+User altered.
+
+SQL> 
+SQL> drop user ora36 cascade;
+drop user ora36 cascade
+          *
+ERROR at line 1:
+ORA-01918: user 'ORA36' does not exist 
+
+
+SQL> create user ora36 identified by ora36;
+
+User created.
+
+SQL> grant ora to ora36;
+
+Grant succeeded.
+
+SQL> alter user ora36 default tablespace users temporary tablespace temp
+  2  quota unlimited on users;
+
+User altered.
+
+SQL> 
+SQL> drop user ora37 cascade;
+drop user ora37 cascade
+          *
+ERROR at line 1:
+ORA-01918: user 'ORA37' does not exist 
+
+
+SQL> create user ora37 identified by ora37;
+
+User created.
+
+SQL> grant ora to ora37;
+
+Grant succeeded.
+
+SQL> alter user ora37 default tablespace users temporary tablespace temp
+  2  quota unlimited on users;
+
+User altered.
+
+SQL> 
+SQL> drop user ora38 cascade;
+drop user ora38 cascade
+          *
+ERROR at line 1:
+ORA-01918: user 'ORA38' does not exist 
+
+
+SQL> create user ora38 identified by ora38;
+
+User created.
+
+SQL> grant ora to ora38;
+
+Grant succeeded.
+
+SQL> alter user ora38 default tablespace users temporary tablespace temp
+  2  quota unlimited on users;
+
+User altered.
+
+SQL> 
+SQL> drop user ora39 cascade;
+drop user ora39 cascade
+          *
+ERROR at line 1:
+ORA-01918: user 'ORA39' does not exist 
+
+
+SQL> create user ora39 identified by ora39;
+
+User created.
+
+SQL> grant ora to ora39;
+
+Grant succeeded.
+
+SQL> alter user ora39 default tablespace users temporary tablespace temp
+  2  quota unlimited on users;
+
+User altered.
+
+SQL> 
+SQL> drop user ora40 cascade;
+drop user ora40 cascade
+          *
+ERROR at line 1:
+ORA-01918: user 'ORA40' does not exist 
+
+
+SQL> create user ora40 identified by ora40;
+
+User created.
+
+SQL> grant ora to ora40;
+
+Grant succeeded.
+
+SQL> alter user ora40 default tablespace users temporary tablespace temp
+  2  quota unlimited on users;
+
+User altered.
+
+SQL> 
+SQL> spool off

@@ -1,0 +1,341 @@
+CONNECT ora21/ora21
+DROP PROCEDURE add_job_history;
+DROP PROCEDURE secure_dml;
+DROP VIEW emp_details_view;
+DROP SEQUENCE departments_seq;
+DROP SEQUENCE employees_seq;
+DROP SEQUENCE locations_seq;
+DROP TABLE regions     CASCADE CONSTRAINTS;
+DROP TABLE departments CASCADE CONSTRAINTS;
+DROP TABLE locations   CASCADE CONSTRAINTS;
+DROP TABLE jobs        CASCADE CONSTRAINTS;
+DROP TABLE job_history CASCADE CONSTRAINTS;
+DROP TABLE employees   CASCADE CONSTRAINTS;
+DROP TABLE countries   CASCADE CONSTRAINTS;  
+
+
+CONNECT ora22/ora22
+DROP PROCEDURE add_job_history;
+DROP PROCEDURE secure_dml;
+DROP VIEW emp_details_view;
+DROP SEQUENCE departments_seq;
+DROP SEQUENCE employees_seq;
+DROP SEQUENCE locations_seq;
+DROP TABLE regions     CASCADE CONSTRAINTS;
+DROP TABLE departments CASCADE CONSTRAINTS;
+DROP TABLE locations   CASCADE CONSTRAINTS;
+DROP TABLE jobs        CASCADE CONSTRAINTS;
+DROP TABLE job_history CASCADE CONSTRAINTS;
+DROP TABLE employees   CASCADE CONSTRAINTS;
+DROP TABLE countries   CASCADE CONSTRAINTS;  
+
+CONNECT ora23/ora23
+DROP PROCEDURE add_job_history;
+DROP PROCEDURE secure_dml;
+DROP VIEW emp_details_view;
+DROP SEQUENCE departments_seq;
+DROP SEQUENCE employees_seq;
+DROP SEQUENCE locations_seq;
+DROP TABLE regions     CASCADE CONSTRAINTS;
+DROP TABLE departments CASCADE CONSTRAINTS;
+DROP TABLE locations   CASCADE CONSTRAINTS;
+DROP TABLE jobs        CASCADE CONSTRAINTS;
+DROP TABLE job_history CASCADE CONSTRAINTS;
+DROP TABLE employees   CASCADE CONSTRAINTS;
+DROP TABLE countries   CASCADE CONSTRAINTS;  
+
+CONNECT ora24/ora24
+DROP PROCEDURE add_job_history;
+DROP PROCEDURE secure_dml;
+DROP VIEW emp_details_view;
+DROP SEQUENCE departments_seq;
+DROP SEQUENCE employees_seq;
+DROP SEQUENCE locations_seq;
+DROP TABLE regions     CASCADE CONSTRAINTS;
+DROP TABLE departments CASCADE CONSTRAINTS;
+DROP TABLE locations   CASCADE CONSTRAINTS;
+DROP TABLE jobs        CASCADE CONSTRAINTS;
+DROP TABLE job_history CASCADE CONSTRAINTS;
+DROP TABLE employees   CASCADE CONSTRAINTS;
+DROP TABLE countries   CASCADE CONSTRAINTS;  
+
+CONNECT ora25/ora25
+DROP PROCEDURE add_job_history;
+DROP PROCEDURE secure_dml;
+DROP VIEW emp_details_view;
+DROP SEQUENCE departments_seq;
+DROP SEQUENCE employees_seq;
+DROP SEQUENCE locations_seq;
+DROP TABLE regions     CASCADE CONSTRAINTS;
+DROP TABLE departments CASCADE CONSTRAINTS;
+DROP TABLE locations   CASCADE CONSTRAINTS;
+DROP TABLE jobs        CASCADE CONSTRAINTS;
+DROP TABLE job_history CASCADE CONSTRAINTS;
+DROP TABLE employees   CASCADE CONSTRAINTS;
+DROP TABLE countries   CASCADE CONSTRAINTS;  
+
+CONNECT ora26/ora26
+DROP PROCEDURE add_job_history;
+DROP PROCEDURE secure_dml;
+DROP VIEW emp_details_view;
+DROP SEQUENCE departments_seq;
+DROP SEQUENCE employees_seq;
+DROP SEQUENCE locations_seq;
+DROP TABLE regions     CASCADE CONSTRAINTS;
+DROP TABLE departments CASCADE CONSTRAINTS;
+DROP TABLE locations   CASCADE CONSTRAINTS;
+DROP TABLE jobs        CASCADE CONSTRAINTS;
+DROP TABLE job_history CASCADE CONSTRAINTS;
+DROP TABLE employees   CASCADE CONSTRAINTS;
+DROP TABLE countries   CASCADE CONSTRAINTS;  
+
+CONNECT ora27/ora27
+DROP PROCEDURE add_job_history;
+DROP PROCEDURE secure_dml;
+DROP VIEW emp_details_view;
+DROP SEQUENCE departments_seq;
+DROP SEQUENCE employees_seq;
+DROP SEQUENCE locations_seq;
+DROP TABLE regions     CASCADE CONSTRAINTS;
+DROP TABLE departments CASCADE CONSTRAINTS;
+DROP TABLE locations   CASCADE CONSTRAINTS;
+DROP TABLE jobs        CASCADE CONSTRAINTS;
+DROP TABLE job_history CASCADE CONSTRAINTS;
+DROP TABLE employees   CASCADE CONSTRAINTS;
+DROP TABLE countries   CASCADE CONSTRAINTS;  
+
+CONNECT ora28/ora28
+DROP PROCEDURE add_job_history;
+DROP PROCEDURE secure_dml;
+DROP VIEW emp_details_view;
+DROP SEQUENCE departments_seq;
+DROP SEQUENCE employees_seq;
+DROP SEQUENCE locations_seq;
+DROP TABLE regions     CASCADE CONSTRAINTS;
+DROP TABLE departments CASCADE CONSTRAINTS;
+DROP TABLE locations   CASCADE CONSTRAINTS;
+DROP TABLE jobs        CASCADE CONSTRAINTS;
+DROP TABLE job_history CASCADE CONSTRAINTS;
+DROP TABLE employees   CASCADE CONSTRAINTS;
+DROP TABLE countries   CASCADE CONSTRAINTS;  
+
+CONNECT ora29/ora29
+DROP PROCEDURE add_job_history;
+DROP PROCEDURE secure_dml;
+DROP VIEW emp_details_view;
+DROP SEQUENCE departments_seq;
+DROP SEQUENCE employees_seq;
+DROP SEQUENCE locations_seq;
+DROP TABLE regions     CASCADE CONSTRAINTS;
+DROP TABLE departments CASCADE CONSTRAINTS;
+DROP TABLE locations   CASCADE CONSTRAINTS;
+DROP TABLE jobs        CASCADE CONSTRAINTS;
+DROP TABLE job_history CASCADE CONSTRAINTS;
+DROP TABLE employees   CASCADE CONSTRAINTS;
+DROP TABLE countries   CASCADE CONSTRAINTS;  
+
+CONNECT ora30/ora30
+DROP PROCEDURE add_job_history;
+DROP PROCEDURE secure_dml;
+DROP VIEW emp_details_view;
+DROP SEQUENCE departments_seq;
+DROP SEQUENCE employees_seq;
+DROP SEQUENCE locations_seq;
+DROP TABLE regions     CASCADE CONSTRAINTS;
+DROP TABLE departments CASCADE CONSTRAINTS;
+DROP TABLE locations   CASCADE CONSTRAINTS;
+DROP TABLE jobs        CASCADE CONSTRAINTS;
+DROP TABLE job_history CASCADE CONSTRAINTS;
+DROP TABLE employees   CASCADE CONSTRAINTS;
+DROP TABLE countries   CASCADE CONSTRAINTS;  
+
+CONNECT ora31/ora31
+DROP PROCEDURE add_job_history;
+DROP PROCEDURE secure_dml;
+DROP VIEW emp_details_view;
+DROP SEQUENCE departments_seq;
+DROP SEQUENCE employees_seq;
+DROP SEQUENCE locations_seq;
+DROP TABLE regions     CASCADE CONSTRAINTS;
+DROP TABLE departments CASCADE CONSTRAINTS;
+DROP TABLE locations   CASCADE CONSTRAINTS;
+DROP TABLE jobs        CASCADE CONSTRAINTS;
+DROP TABLE job_history CASCADE CONSTRAINTS;
+DROP TABLE employees   CASCADE CONSTRAINTS;
+DROP TABLE countries   CASCADE CONSTRAINTS;  
+
+CONNECT ora32/ora32
+DROP PROCEDURE add_job_history;
+DROP PROCEDURE secure_dml;
+DROP VIEW emp_details_view;
+DROP SEQUENCE departments_seq;
+DROP SEQUENCE employees_seq;
+DROP SEQUENCE locations_seq;
+DROP TABLE regions     CASCADE CONSTRAINTS;
+DROP TABLE departments CASCADE CONSTRAINTS;
+DROP TABLE locations   CASCADE CONSTRAINTS;
+DROP TABLE jobs        CASCADE CONSTRAINTS;
+DROP TABLE job_history CASCADE CONSTRAINTS;
+DROP TABLE employees   CASCADE CONSTRAINTS;
+DROP TABLE countries   CASCADE CONSTRAINTS;  
+
+CONNECT ora33/ora33
+DROP PROCEDURE add_job_history;
+DROP PROCEDURE secure_dml;
+DROP VIEW emp_details_view;
+DROP SEQUENCE departments_seq;
+DROP SEQUENCE employees_seq;
+DROP SEQUENCE locations_seq;
+DROP TABLE regions     CASCADE CONSTRAINTS;
+DROP TABLE departments CASCADE CONSTRAINTS;
+DROP TABLE locations   CASCADE CONSTRAINTS;
+DROP TABLE jobs        CASCADE CONSTRAINTS;
+DROP TABLE job_history CASCADE CONSTRAINTS;
+DROP TABLE employees   CASCADE CONSTRAINTS;
+DROP TABLE countries   CASCADE CONSTRAINTS;  
+
+CONNECT ora34/ora34
+DROP PROCEDURE add_job_history;
+DROP PROCEDURE secure_dml;
+DROP VIEW emp_details_view;
+DROP SEQUENCE departments_seq;
+DROP SEQUENCE employees_seq;
+DROP SEQUENCE locations_seq;
+DROP TABLE regions     CASCADE CONSTRAINTS;
+DROP TABLE departments CASCADE CONSTRAINTS;
+DROP TABLE locations   CASCADE CONSTRAINTS;
+DROP TABLE jobs        CASCADE CONSTRAINTS;
+DROP TABLE job_history CASCADE CONSTRAINTS;
+DROP TABLE employees   CASCADE CONSTRAINTS;
+DROP TABLE countries   CASCADE CONSTRAINTS;  
+
+CONNECT ora35/ora35
+DROP PROCEDURE add_job_history;
+DROP PROCEDURE secure_dml;
+DROP VIEW emp_details_view;
+DROP SEQUENCE departments_seq;
+DROP SEQUENCE employees_seq;
+DROP SEQUENCE locations_seq;
+DROP TABLE regions     CASCADE CONSTRAINTS;
+DROP TABLE departments CASCADE CONSTRAINTS;
+DROP TABLE locations   CASCADE CONSTRAINTS;
+DROP TABLE jobs        CASCADE CONSTRAINTS;
+DROP TABLE job_history CASCADE CONSTRAINTS;
+DROP TABLE employees   CASCADE CONSTRAINTS;
+DROP TABLE countries   CASCADE CONSTRAINTS;  
+
+CONNECT ora36/ora36
+DROP PROCEDURE add_job_history;
+DROP PROCEDURE secure_dml;
+DROP VIEW emp_details_view;
+DROP SEQUENCE departments_seq;
+DROP SEQUENCE employees_seq;
+DROP SEQUENCE locations_seq;
+DROP TABLE regions     CASCADE CONSTRAINTS;
+DROP TABLE departments CASCADE CONSTRAINTS;
+DROP TABLE locations   CASCADE CONSTRAINTS;
+DROP TABLE jobs        CASCADE CONSTRAINTS;
+DROP TABLE job_history CASCADE CONSTRAINTS;
+DROP TABLE employees   CASCADE CONSTRAINTS;
+DROP TABLE countries   CASCADE CONSTRAINTS;  
+
+CONNECT ora37/ora37
+DROP PROCEDURE add_job_history;
+DROP PROCEDURE secure_dml;
+DROP VIEW emp_details_view;
+DROP SEQUENCE departments_seq;
+DROP SEQUENCE employees_seq;
+DROP SEQUENCE locations_seq;
+DROP TABLE regions     CASCADE CONSTRAINTS;
+DROP TABLE departments CASCADE CONSTRAINTS;
+DROP TABLE locations   CASCADE CONSTRAINTS;
+DROP TABLE jobs        CASCADE CONSTRAINTS;
+DROP TABLE job_history CASCADE CONSTRAINTS;
+DROP TABLE employees   CASCADE CONSTRAINTS;
+DROP TABLE countries   CASCADE CONSTRAINTS;  
+
+CONNECT ora38/ora38
+DROP PROCEDURE add_job_history;
+DROP PROCEDURE secure_dml;
+DROP VIEW emp_details_view;
+DROP SEQUENCE departments_seq;
+DROP SEQUENCE employees_seq;
+DROP SEQUENCE locations_seq;
+DROP TABLE regions     CASCADE CONSTRAINTS;
+DROP TABLE departments CASCADE CONSTRAINTS;
+DROP TABLE locations   CASCADE CONSTRAINTS;
+DROP TABLE jobs        CASCADE CONSTRAINTS;
+DROP TABLE job_history CASCADE CONSTRAINTS;
+DROP TABLE employees   CASCADE CONSTRAINTS;
+DROP TABLE countries   CASCADE CONSTRAINTS;  
+
+CONNECT ora39/ora39
+DROP PROCEDURE add_job_history;
+DROP PROCEDURE secure_dml;
+DROP VIEW emp_details_view;
+DROP SEQUENCE departments_seq;
+DROP SEQUENCE employees_seq;
+DROP SEQUENCE locations_seq;
+DROP TABLE regions     CASCADE CONSTRAINTS;
+DROP TABLE departments CASCADE CONSTRAINTS;
+DROP TABLE locations   CASCADE CONSTRAINTS;
+DROP TABLE jobs        CASCADE CONSTRAINTS;
+DROP TABLE job_history CASCADE CONSTRAINTS;
+DROP TABLE employees   CASCADE CONSTRAINTS;
+DROP TABLE countries   CASCADE CONSTRAINTS;  
+
+CONNECT ora40/ora40
+DROP PROCEDURE add_job_history;
+DROP PROCEDURE secure_dml;
+DROP VIEW emp_details_view;
+DROP SEQUENCE departments_seq;
+DROP SEQUENCE employees_seq;
+DROP SEQUENCE locations_seq;
+DROP TABLE regions     CASCADE CONSTRAINTS;
+DROP TABLE departments CASCADE CONSTRAINTS;
+DROP TABLE locations   CASCADE CONSTRAINTS;
+DROP TABLE jobs        CASCADE CONSTRAINTS;
+DROP TABLE job_history CASCADE CONSTRAINTS;
+DROP TABLE employees   CASCADE CONSTRAINTS;
+DROP TABLE countries   CASCADE CONSTRAINTS;  
+
+CONNECT teach_b/teach_b
+DROP PROCEDURE add_job_history;
+DROP PROCEDURE secure_dml;
+DROP VIEW emp_details_view;
+DROP SEQUENCE departments_seq;
+DROP SEQUENCE employees_seq;
+DROP SEQUENCE locations_seq;
+DROP TABLE regions     CASCADE CONSTRAINTS;
+DROP TABLE departments CASCADE CONSTRAINTS;
+DROP TABLE locations   CASCADE CONSTRAINTS;
+DROP TABLE jobs        CASCADE CONSTRAINTS;
+DROP TABLE job_history CASCADE CONSTRAINTS;
+DROP TABLE employees   CASCADE CONSTRAINTS;
+DROP TABLE countries   CASCADE CONSTRAINTS;  
+
+
+connect system/oracle
+
+drop user ora21 cascade;
+drop user ora22 cascade;
+drop user ora23 cascade;
+drop user ora24 cascade;
+drop user ora25 cascade;
+drop user ora26 cascade;
+drop user ora27 cascade;
+drop user ora28 cascade;
+drop user ora29 cascade;
+drop user ora30 cascade;
+drop user ora31 cascade;
+drop user ora32 cascade;
+drop user ora33 cascade;
+drop user ora34 cascade;
+drop user ora35 cascade;
+drop user ora36 cascade;
+drop user ora37 cascade;
+drop user ora38 cascade;
+drop user ora39 cascade;
+drop user ora40 cascade;
+drop user teach_b cascade;
+commit;

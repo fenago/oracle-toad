@@ -1,0 +1,154 @@
+ORACLE>@a:\lab4_8
+from staff
+*
+ERROR at line 2: 
+ORA-00936: missing expression 
+
+
+MORE
+     50 HANES          10  $20,659.80                                          
+
+ORACLE>select /* COST */ id,name
+  2  from staff
+  3  where dept =15;
+MORE
+     ID NAME                                                                   
+------- ---------                                                              
+     50 HANES                                                                  
+     70 ROTHMAN                                                                
+    110 NGAN                                                                   
+    170 KERMISCH                                                               
+
+ORACLE>select /*+ COST */ id,name
+  2  from staff
+  3  where dept = 15;
+MORE
+     ID NAME                                                                   
+------- ---------                                                              
+     50 HANES                                                                  
+     70 ROTHMAN                                                                
+    110 NGAN                                                                   
+    170 KERMISCH                                                               
+
+ORACLE>select --+ NOCOST
+  2  id,name
+  3  from staff
+  4  where dept = 15;
+MORE
+     ID NAME                                                                   
+------- ---------                                                              
+     50 HANES                                                                  
+     70 ROTHMAN                                                                
+    110 NGAN                                                                   
+    170 KERMISCH                                                               
+
+ORACLE>host
+
+ORACLE>@a:lab4_8
+from staff
+*
+ERROR at line 2: 
+ORA-00936: missing expression 
+
+
+ORACLE>show user
+user is "SYSTEM"
+ORACLE>get lab4_8
+unable to open "lab4_8.SQL"
+ORACLE>get a:lab4_8
+  1  select  --+ COST  id,name,years,salary
+  2  from staff
+  3* where dept = 15;
+  4  /
+from staff
+*
+ERROR at line 2: 
+ORA-00936: missing expression 
+
+
+ORACLE>l
+  1  select  --+ COST  id,name,years,salary
+  2  from staff
+  3* where dept = 15;
+ORACLE>l1
+  1* select  --+ COST  id,name,years,salary
+ORACLE>c/--+ COST//* COST */
+  1* select    id,name,years,salary
+ORACLE>L
+  1  select    id,name,years,salary
+  2  from staff
+  3* where dept = 15;
+ORACLE>/
+where dept = 15;
+               *
+ERROR at line 3: 
+ORA-00911: invalid character 
+
+
+ORACLE>RUN
+  1  select    id,name,years,salary
+  2  from staff
+  3* where dept = 15;
+where dept = 15;
+               *
+ERROR at line 3: 
+ORA-00911: invalid character 
+
+
+ORACLE>C/;/ /
+  3* where dept = 15 
+ORACLE>/
+MORE
+     ID NAME        YEARS      SALARY                                          
+------- --------- ------- -----------                                          
+     50 HANES          10  $20,659.80                                          
+     70 ROTHMAN         7  $16,502.83                                          
+    110 NGAN            5  $12,508.20                                          
+    170 KERMISCH        4  $12,258.50                                          
+
+ORACLE>L1
+  1* select    id,name,years,salary
+ORACLE>C/SELECT/SELECT /* COST */
+  1* SELECT     id,name,years,salary
+ORACLE>C?SELECT?SELECT /* COST */?
+  1* SELECT /* COST */     id,name,years,salary
+ORACLE>/
+MORE
+     ID NAME        YEARS      SALARY                                          
+------- --------- ------- -----------                                          
+     50 HANES          10  $20,659.80                                          
+     70 ROTHMAN         7  $16,502.83                                          
+    110 NGAN            5  $12,508.20                                          
+    170 KERMISCH        4  $12,258.50                                          
+
+ORACLE>SAVE LAB4_8
+Created file LAB4_8
+ORACLE>HOST
+
+ORACLE>@A:LAB4_8
+MORE
+     50 HANES          10  $20,659.80                                          
+
+ORACLE>@LAB4_8
+MORE
+     ID NAME        YEARS      SALARY                                          
+------- --------- ------- -----------                                          
+     50 HANES          10  $20,659.80                                          
+     70 ROTHMAN         7  $16,502.83                                          
+    110 NGAN            5  $12,508.20                                          
+    170 KERMISCH        4  $12,258.50                                          
+
+ORACLE>GET LAB4_8
+  1  SELECT /* COST */     id,name,years,salary
+  2  from staff
+  3* where dept = 15 
+ORACLE>/
+MORE
+     ID NAME        YEARS      SALARY                                          
+------- --------- ------- -----------                                          
+     50 HANES          10  $20,659.80                                          
+     70 ROTHMAN         7  $16,502.83                                          
+    110 NGAN            5  $12,508.20                                          
+    170 KERMISCH        4  $12,258.50                                          
+
+ORACLE>@A:BIG2

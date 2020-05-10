@@ -1,0 +1,4 @@
+col reason format a75
+
+SELECT reason FROM DBA_OUTSTANDING_ALERTS;
+REASON

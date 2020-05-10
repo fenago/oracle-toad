@@ -1,0 +1,55 @@
+Execution Plan
+----------------------------------------------------------
+Plan hash value: 3500117990
+
+--------------------------------------------------------------------------------
+---------------------
+| Id  | Operation                      | Name               | Rows  | Bytes | Co
+st (%CPU)| Time     |
+--------------------------------------------------------------------------------
+---------------------
+|   0 | SELECT STATEMENT               |                    |     6 |   570 |
+368   (1)| 00:00:05 |
+|   1 |  NESTED LOOPS                  |                    |       |       |
+         |          |
+|   2 |   NESTED LOOPS                 |                    |     6 |   570 |
+368   (1)| 00:00:05 |
+|*  3 |    HASH JOIN                   |                    |     5 |   295 |
+  7  (15)| 00:00:01 |
+|   4 |     TABLE ACCESS BY INDEX ROWID| PERS_SVCMBR_TBL    |     5 |   150 |
+  3   (0)| 00:00:01 |
+|*  5 |      INDEX RANGE SCAN          | SVCMBR_IDX2        |     5 |       |
+  2   (0)| 00:00:01 |
+|   6 |     TABLE ACCESS FULL          | PERS_UNIT_TBL      |   130 |  3770 |
+  3   (0)| 00:00:01 |
+|*  7 |    INDEX RANGE SCAN            | BIG_PERSON_SSN_DOB |    12 |       |
+ 59   (0)| 00:00:01 |
+|*  8 |   TABLE ACCESS BY INDEX ROWID  | BIG_PERSON         |     1 |    36 |
+ 72   (0)| 00:00:01 |
+--------------------------------------------------------------------------------
+---------------------
+
+Predicate Information (identified by operation id):
+---------------------------------------------------
+
+   3 - access("P"."UPC"="U"."UPC")
+   5 - access("P"."SSN_SM">='100301234' AND "P"."SSN_SM"<='100701234')
+   7 - access("B"."SSN_SM"="P"."SSN_SM")
+       filter("B"."SSN_SM"<='100701234' AND "B"."SSN_SM">='100301234')
+   8 - filter("STATES_US"='OH')
+
+
+Statistics
+----------------------------------------------------------
+          1  recursive calls
+          0  db block gets
+      70210  consistent gets
+      14322  physical reads
+          0  redo size
+     186736  bytes sent via SQL*Net to client
+      10525  bytes received via SQL*Net from client
+        921  SQL*Net roundtrips to/from client
+          0  sorts (memory)
+          0  sorts (disk)
+      13798  rows processed
+

@@ -1,0 +1,1 @@
+exec dbms_space.unused_space('SYSTEM','STAFF','TABLE',:TOT_BLOCKS,:TOT_BYTES,:UNUSED_BLOCKS,:UNUSED_BYTES,:last_used_ex_file_id,:last_used_extent_block_id,:last_used_block)

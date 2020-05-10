@@ -1,0 +1,6 @@
+	SELECT username,SID, SERIAL#, CONTEXT, SOFAR, TOTALWORK,
+	       ROUND(SOFAR/TOTALWORK*100,2) "%_COMPLETE", opname
+	FROM V$SESSION_LONGOPS
+	WHERE username like 'SCOTT%'  and
+	  OPNAME NOT LIKE '%aggregate%'
+/

@@ -1,0 +1,9 @@
+
+SELECT HASH_VALUE,
+       EXECUTIONS,
+       BUFFER_GETS,
+       PARSE_CALLS,
+       SUBSTR(SQL_TEXT,1,22) TEXT
+FROM   V$SQLAREA
+WHERE  EXECUTIONS > 9999
+/                               

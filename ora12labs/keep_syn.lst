@@ -1,0 +1,20 @@
+drop table t1
+           *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+
+Table created.
+
+
+'ALTER'||S.SEGMENT_TYPE||''||T1.OWNER||'.'||S.SEGMENT_NAME||'STORAGE(BUFFER_POOLKEEP);'     
+--------------------------------------------------------------------------------------------
+alter TABLE DBSNMP.MGMT_LATEST storage (buffer_pool keep);                                  
+alter TABLE SYSMAN.MGMT_TASK_QTABLE storage (buffer_pool keep);                             
+alter TABLE DBSNMP.MGMT_CAPTURE_SQL storage (buffer_pool keep);                             
+alter TABLE DBSNMP.MGMT_CAPTURE storage (buffer_pool keep);                                 
+alter TABLE DBSNMP.MGMT_LATEST_SQL storage (buffer_pool keep);                              
+
+5 rows selected.
+

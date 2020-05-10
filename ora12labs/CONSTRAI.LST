@@ -1,0 +1,277 @@
+ORACLE>@PRES
+
+Table created.
+
+ORACLE>@PRESOTHR
+
+Table created.
+
+
+Commit complete.
+
+
+Table created.
+
+
+Commit complete.
+
+
+Table created.
+
+
+Commit complete.
+
+
+Table created.
+
+
+Commit complete.
+
+
+Table created.
+
+
+Commit complete.
+
+
+Table created.
+
+
+Commit complete.
+
+ORACLE>@UINSERT
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+INSERT INTO PRES_HOBBY
+            *
+ERROR at line 1: 
+ORA-02291: integrity constraint (SYSTEM.FK_PRES_NAME) violated - parent key 
+not found 
+
+
+INSERT INTO PRES_HOBBY
+            *
+ERROR at line 1: 
+ORA-02291: integrity constraint (SYSTEM.FK_PRES_NAME) violated - parent key 
+not found 
+
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+ORACLE>SELECT * FROM PRES_HOBBY;
+MORE
+PRES_NAME            HOBBY                                                     
+-------------------- --------------------                                      
+JOHNSON L B          RIDING                                                    
+KENNEDY J F          SAILING                                                   
+KENNEDY J F          SWIMMING                                                  
+KENNEDY J F          TOUCH FOOTBALL                                            
+NIXON R M            GOLF                                                      
+
+ORACLE>

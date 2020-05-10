@@ -1,0 +1,6 @@
+select id, name, job, 'STAFF'
+ FROM STAFF
+ UNION
+  SELECT TEMPID, NAME, 'NO JOB', 'APPLICANT'
+FROM APPLICANT
+/

@@ -1,0 +1,141 @@
+Database Scan Summary Report
+
+Time Started  : 2011-12-27 15:40:48
+Time Completed: 2011-12-27 15:42:34
+
+Process ID         Time Started       Time Completed
+---------- -------------------- --------------------
+         1  2011-12-27 15:41:12  2011-12-27 15:42:32
+         2  2011-12-27 15:41:12  2011-12-27 15:42:33
+---------- -------------------- --------------------
+
+[Database Size]
+
+Tablespace                           Used            Free           Total       Expansion
+------------------------- --------------- --------------- --------------- ---------------
+SYSTEM                          1,000.69M           9.31M       1,010.00M            .00K
+SYSAUX                            755.31M          64.69M         820.00M            .00K
+UNDOTBS1                           14.50M       2,200.50M       2,215.00M            .00K
+TEMP                                 .00K            .00K            .00K            .00K
+USERS                             320.94M          16.56M         337.50M            .00K
+EXAMPLE                            78.56M          21.44M         100.00M            .00K
+TOOLS                              31.00M         129.00M         160.00M            .00K
+JERINDEX                           97.81M           2.19M         100.00M            .00K
+JERRY                               1.38M          98.63M         100.00M            .00K
+USER_DATA                          40.00M          60.00M         100.00M            .00K
+------------------------- --------------- --------------- --------------- ---------------
+Total                           2,340.19M       2,602.31M       4,942.50M            .00K
+
+The size of the largest CLOB is 1625114 bytes
+
+[Database Scan Parameters]
+
+Parameter                      Value                                           
+------------------------------ ------------------------------------------------
+CSSCAN Version                 v2.1                                            
+Instance Name                  orcl                                            
+Database Version               11.2.0.1.0                                      
+Scan type                      Full database                                   
+Scan CHAR data?                YES                                             
+Database character set         WE8MSWIN1252                                    
+FROMCHAR                       WE8MSWIN1252                                    
+TOCHAR                         WE8ISO8859P1                                    
+Scan NCHAR data?               NO                                              
+Array fetch buffer size        1024000                                         
+Number of processes            2                                               
+Capture convertible data?      NO                                              
+------------------------------ ------------------------------------------------
+
+[Scan Summary]
+
+All character type data in the data dictionary remain the same in the new character set
+All character type application data remain the same in the new character set
+
+[Data Dictionary Conversion Summary]
+
+Data Dictionary Tables:
+
+Datatype                    Changeless      Convertible       Truncation            Lossy
+--------------------- ---------------- ---------------- ---------------- ----------------
+VARCHAR2                    21,669,975                0                0                0
+CHAR                             5,670                0                0                0
+LONG                           245,594                0                0                0
+CLOB                         1,777,171                0                0                0
+VARRAY                          43,151                0                0                0
+--------------------- ---------------- ---------------- ---------------- ----------------
+Total                       23,741,561                0                0                0
+Total in percentage            100.000%           0.000%           0.000%           0.000%
+
+The data dictionary can be safely migrated using the CSALTER script
+
+XML CSX Dictionary Tables:
+
+Datatype                    Changeless      Convertible       Truncation            Lossy
+--------------------- ---------------- ---------------- ---------------- ----------------
+VARCHAR2                           495                0                0                0
+CHAR                                 0                0                0                0
+LONG                                 0                0                0                0
+CLOB                                 0                0                0                0
+VARRAY                               0                0                0                0
+--------------------- ---------------- ---------------- ---------------- ----------------
+Total                              495                0                0                0
+Total in percentage            100.000%           0.000%           0.000%           0.000%
+
+[Application Data Conversion Summary]
+
+Datatype                    Changeless      Convertible       Truncation            Lossy
+--------------------- ---------------- ---------------- ---------------- ----------------
+VARCHAR2                    13,825,650                0                0                0
+CHAR                            60,720                0                0                0
+LONG                                 0                0                0                0
+CLOB                            33,243                0                0                0
+VARRAY                           7,231                0                0                0
+--------------------- ---------------- ---------------- ---------------- ----------------
+Total                       13,926,844                0                0                0
+Total in percentage            100.000%           0.000%           0.000%           0.000%
+
+[Distribution of Convertible, Truncated and Lossy Data by Table]
+
+Data Dictionary Tables:
+
+USER.TABLE                                              Convertible       Truncation            Lossy
+-------------------------------------------------- ---------------- ---------------- ----------------
+-------------------------------------------------- ---------------- ---------------- ----------------
+
+XML CSX Dictionary Tables:
+
+USER.TABLE                                              Convertible       Truncation            Lossy
+-------------------------------------------------- ---------------- ---------------- ----------------
+-------------------------------------------------- ---------------- ---------------- ----------------
+
+Application Data:
+
+USER.TABLE                                              Convertible       Truncation            Lossy
+-------------------------------------------------- ---------------- ---------------- ----------------
+-------------------------------------------------- ---------------- ---------------- ----------------
+
+[Distribution of Convertible, Truncated and Lossy Data by Column]
+
+Data Dictionary Tables:
+
+USER.TABLE|COLUMN                                       Convertible       Truncation            Lossy
+-------------------------------------------------- ---------------- ---------------- ----------------
+-------------------------------------------------- ---------------- ---------------- ----------------
+
+XML CSX Dictionary Tables:
+
+USER.TABLE|COLUMN                                       Convertible       Truncation            Lossy
+-------------------------------------------------- ---------------- ---------------- ----------------
+-------------------------------------------------- ---------------- ---------------- ----------------
+
+Application Data:
+
+USER.TABLE|COLUMN                                       Convertible       Truncation            Lossy
+-------------------------------------------------- ---------------- ---------------- ----------------
+-------------------------------------------------- ---------------- ---------------- ----------------
+
+[Indexes to be Rebuilt]
+
+USER.INDEX on USER.TABLE(COLUMN)                                                         
+-----------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------

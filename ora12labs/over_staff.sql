@@ -1,0 +1,6 @@
+SELECT id, dept,
+COUNT(*) OVER (PARTITION BY
+dept) DEPT_COUNT
+FROM staff
+WHERE dept IN (15,20,38)
+/

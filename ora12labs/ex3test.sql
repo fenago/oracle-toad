@@ -1,0 +1,11 @@
+DECLARE
+DEPT      ORG.DEPTNUMB%TYPE      := &L_DEPT;
+LOC       ORG.LOCATION%TYPE      := '&LOC';
+BEGIN
+UPDATE ORG
+SET LOCATION = LOC
+WHERE DEPTNUMB = DEPT;
+END;
+/
+select * from org;
+/

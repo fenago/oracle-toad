@@ -1,0 +1,265 @@
+
+ORACLE>/* PROBLEM #1 */
+
+ORACLE>SELECT * FROM STAFF WHERE JOB = 'CLERK;
+SELECT * FROM STAFF WHERE JOB = 'CLERK'
+                                *
+
+MORE
+     ID NAME           DEPT JOB     YEARS  SALARY    COMM              
+------- ----------- ------- ----- ------- ------- -------            
+     80 JAMES               CLERK         13504.6   128.2         
+    110 NGAN             15 CLERK       5 12508.2   206.6             
+    120 NAUGHTON         38 CLERK         12954.8     180            
+    130 YAMAGUCHI        42 CLERK       6 10505.9    75.6           
+    170 KERMISCH         15 CLERK       4 12258.5   110.1             
+    180 ABRAHAMS         38 CLERK       3 12009.8   236.5            
+    190 SNEIDER          20 CLERK       8 14252.8   126.5             
+    200 SCOUTTEN         42 CLERK         11508.6    84.2             
+    230 LUNDQUIST        51 CLERK       3 13369.8  189.65             
+    250 WHEELER          51 CLERK       6   14460   513.3            
+    330 BURKE            66 CLERK       1   10988    55.5             
+    350 GAFNEY           84 CLERK       5 13030.5     188 01-FEB-97            
+
+12 rows selected.
+
+ORACLE>/* PROBLEM #2 */
+
+ORACLE>SELECT DEPT,NAME,SALARY,COMM FROM STAFF ORDER BY DEPT;
+MORE
+   DEPT NAME         SALARY    COMM                                            
+------- ----------- ------- -------                                            
+     10 MOLINARE    22959.2                                                    
+     10 LU            20010                                                    
+     10 JONES         21234                                                    
+     10 DANIELS     19260.3                                                    
+     15 HANES       20659.8                                                    
+     15 ROTHMAN     16502.8    1152                                            
+     15 KERMISCH    12258.5   110.1                                            
+     15 NGAN        12508.2   206.6                                            
+     20 SANDERS     18357.5                                                    
+     20 PERNAL      18171.3  612.45                                            
+     20 SNEIDER     14252.8   126.5                                            
+     38 MARENGHI    17506.8                                                    
+     38 NAUGHTON    12954.8     180                                            
+     38 O'BRIEN       18006  846.55                                            
+     38 ABRAHAMS    12009.8   236.5                                            
+     38 QUIGLEY     16808.3  650.25                                            
+     42 KOONITZ     18001.8  1386.7                                            
+     42 YAMAGUCHI   10505.9    75.6                                            
+     42 SCOUTTEN    11508.6    84.2                                            
+     42 PLOTZ       18352.8                                                    
+     51 FRAYE         21150                                                    
+     51 WILLIAMS    19456.5  637.65                                            
+MORE
+   DEPT NAME         SALARY    COMM                                            
+------- ----------- ------- -------                                            
+     51 LUNDQUIST   13369.8  189.65                                            
+     51 WHEELER       14460   513.3                                            
+     51 SMITH       17654.5   992.8                                            
+     66 LEA         18555.5                                                    
+     66 GRAHAM        21000   200.3                                            
+     66 BURKE         10988    55.5                                            
+     66 GONZALES    16858.2     844                                            
+     66 WILSON      18674.5   811.5                                            
+     84 QUILL         19818                                                    
+     84 EDWARDS       17844    1285                                            
+     84 GAFNEY      13030.5     188                                            
+     84 DAVIS         21000   200.3                                            
+        JAMES       13504.6   128.2                                            
+
+35 rows selected.
+
+ORACLE>/* PROBLEM #3 */
+
+ORACLE>SELECT DEPT,NAME,JOB FROM STAFF
+  2  WHERE DEPT IN (20,42,51,84);
+MORE
+   DEPT NAME        JOB                                                        
+------- ----------- -----                                                      
+     20 SANDERS     MGR                                                        
+     20 PERNAL      SALES                                                      
+     42 KOONITZ     SALES                                                      
+     42 PLOTZ       MGR                                                        
+     42 YAMAGUCHI   CLERK                                                      
+     51 FRAYE       MGR                                                        
+     51 WILLIAMS    SALES                                                      
+     20 SNEIDER     CLERK                                                      
+     42 SCOUTTEN    CLERK                                                      
+     51 SMITH       SALES                                                      
+     51 LUNDQUIST   CLERK                                                      
+     51 WHEELER     CLERK                                                      
+     84 QUILL       MGR                                                        
+     84 DAVIS       SALES                                                      
+     84 EDWARDS     SALES                                                      
+     84 GAFNEY      CLERK                                                      
+
+16 rows selected.
+
+ORACLE>/* PROBLEM #4 */
+
+ORACLE>SELECT DEPT,AVG(SALARY) FROM STAFF
+  2  GROUP BY DEPT;
+MORE
+   DEPT AVG(SALARY)                                                            
+------- -----------                                                            
+     10     20865.9                                                            
+     15     15482.3                                                            
+     20     16927.2                                                            
+     38     15457.1                                                            
+     42     14592.3                                                            
+     51     17218.2                                                            
+     66     17215.2                                                            
+     84     17923.1                                                            
+            13504.6                                                            
+
+9 rows selected.
+
+ORACLE>/*  PROBLEM 5  */
+
+ORACLE>SELECT DEPT,NAME,SALARY+COMM FROM STAFF
+  2  WHERE JOB = 'SALES'
+  3  ORDER BY 3 DESC;
+MORE
+   DEPT NAME        SALARY+COMM                                                
+------- ----------- -----------                                                
+     84 DAVIS           21200.3                                                
+     66 GRAHAM          21200.3                                                
+     51 WILLIAMS        20094.2                                                
+     66 WILSON            19486                                                
+     42 KOONITZ         19388.5                                                
+     84 EDWARDS           19129                                                
+     38 O'BRIEN         18852.6                                                
+     20 PERNAL          18783.7                                                
+     51 SMITH           18647.3                                                
+     66 GONZALES        17702.2                                                
+     15 ROTHMAN         17654.8                                                
+     38 QUIGLEY         17458.6                                                
+
+12 rows selected.
+
+ORACLE>/* PROBLEM #6 */
+
+ORACLE>SELECT NAME FROM STAFF
+  2  WHERE NAME LIKE '%ON%';
+MORE
+NAME                                                                           
+-----------                                                                    
+KOONITZ                                                                        
+NAUGHTON                                                                       
+JONES                                                                          
+WILSON                                                                         
+GONZALES                                                                       
+
+ORACLE>/* PROBLEM #7 */
+
+ORACLE>SELECT NAME,SALARY/52 FROM STAFF
+  2  WHERE SALARY/52 > 300;
+MORE
+NAME        SALARY/52                                                          
+----------- ---------                                                          
+SANDERS       353.029                                                          
+PERNAL        349.447                                                          
+MARENGHI      336.668                                                          
+O'BRIEN       346.269                                                          
+HANES         397.304                                                          
+QUIGLEY       323.237                                                          
+ROTHMAN       317.362                                                          
+KOONITZ       346.188                                                          
+PLOTZ         352.938                                                          
+FRAYE         406.731                                                          
+WILLIAMS      374.163                                                          
+MOLINARE      441.523                                                          
+LU            384.808                                                          
+SMITH          339.51                                                          
+DANIELS       370.389                                                          
+JONES         408.346                                                          
+LEA           356.837                                                          
+WILSON        359.125                                                          
+QUILL         381.115                                                          
+DAVIS         403.846                                                          
+GRAHAM        403.846                                                          
+GONZALES      324.196                                                          
+MORE
+NAME        SALARY/52                                                          
+----------- ---------                                                          
+EDWARDS       343.154                                                          
+
+23 rows selected.
+
+ORACLE>/* PROBLEM #8 */
+
+ORACLE>SELECT NAME,SALARY,COMM,SALARY+COMM
+  2  FROM STAFF
+  3  WHERE COMM >= (SALARY+COMM) * .05;
+MORE
+NAME         SALARY    COMM SALARY+COMM                                        
+----------- ------- ------- -----------                                        
+ROTHMAN     16502.8    1152     17654.8                                        
+KOONITZ     18001.8  1386.7     19388.5                                        
+SMITH       17654.5   992.8     18647.3                                        
+EDWARDS       17844    1285       19129                                        
+
+ORACLE>/* PROBLEM #9 */
+
+ORACLE>SELECT DEPT,ID,NAME,SALARY,COMM
+  2  FROM STAFF
+  3  WHERE DEPT NOT IN(38,41)
+  4  ORDER BY DEPT;
+MORE
+   DEPT      ID NAME         SALARY    COMM                                    
+------- ------- ----------- ------- -------                                    
+     10     160 MOLINARE    22959.2                                            
+     10     210 LU            20010                                            
+     10     240 DANIELS     19260.3                                            
+     10     260 JONES         21234                                            
+     15      50 HANES       20659.8                                            
+     15      70 ROTHMAN     16502.8    1152                                    
+     15     170 KERMISCH    12258.5   110.1                                    
+     15     110 NGAN        12508.2   206.6                                    
+     20      10 SANDERS     18357.5                                            
+     20      20 PERNAL      18171.3  612.45                                    
+     20     190 SNEIDER     14252.8   126.5                                    
+     42      90 KOONITZ     18001.8  1386.7                                    
+     42     130 YAMAGUCHI   10505.9    75.6                                    
+     42     100 PLOTZ       18352.8                                            
+     42     200 SCOUTTEN    11508.6    84.2                                    
+     51     140 FRAYE         21150                                            
+     51     220 SMITH       17654.5   992.8                                    
+     51     230 LUNDQUIST   13369.8  189.65                                    
+     51     250 WHEELER       14460   513.3                                    
+     51     150 WILLIAMS    19456.5  637.65                                    
+     66     270 LEA         18555.5                                            
+     66     280 WILSON      18674.5   811.5                                    
+MORE
+   DEPT      ID NAME         SALARY    COMM                                    
+------- ------- ----------- ------- -------                                    
+     66     320 GONZALES    16858.2     844                                    
+     66     330 BURKE         10988    55.5                                    
+     66     310 GRAHAM        21000   200.3                                    
+     84     290 QUILL         19818                                            
+     84     340 EDWARDS       17844    1285                                    
+     84     350 GAFNEY      13030.5     188                                    
+     84     300 DAVIS         21000   200.3                                    
+
+29 rows selected.
+
+ORACLE>/* PROBLEM #10 */
+
+ORACLE>SELECT DISTINCT DEPT FROM STAFF
+  2  WHERE COMM IS NULL;
+MORE
+   DEPT                                                                        
+-------                                                                        
+     10                                                                        
+     15                                                                        
+     20                                                                        
+     38                                                                        
+     42                                                                        
+     51                                                                        
+     66                                                                        
+     84                                                                        
+
+8 rows selected.
+
+ORACLE>SPOOL OFF

@@ -1,0 +1,5 @@
+DELETE FROM APPLICANT
+WHERE TEMPID IN
+(SELECT ID FROM STAff where name in
+(select name from APPLICANT))
+/

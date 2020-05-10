@@ -1,0 +1,1 @@
+ALTER TABLE customers DROP CONSTRAINT cust_email_addr ; 

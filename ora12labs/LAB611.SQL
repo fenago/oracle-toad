@@ -1,0 +1,3 @@
+dba_extents
+dba_segments
+dba_tables

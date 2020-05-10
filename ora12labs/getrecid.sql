@@ -1,0 +1,9 @@
+getrecid.sql
+connect sys/change_on_install@&1 as sysdba
+SET HEAD OFF FEEDBACK OFF VERIFY OFF TERMOUT ON ECHO OFF TRIMSPOOL ON SERVEROUTPUT OFF
+SPOOL recid.log
+SELECT MAX(RECID) FROM V$LOG_HISTORY;
+SPOOL OFF
+exit
+
+

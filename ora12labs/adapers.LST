@@ -1,0 +1,6 @@
+c.pay_gr, a.gr_abbr_code, substr(to_char(a.eff_date_gr,'YYYYMMDD'),3,6), a.upc, a.atch_code,
+                                                       *
+ERROR at line 2:
+ORA-01481: invalid number format model 
+
+

@@ -1,0 +1,568 @@
+Trace file c:\app\richardjerry\diag\rdbms\orcl\orcl\trace\orcl_ora_6172.trc
+Oracle Database 11g Enterprise Edition Release 11.2.0.1.0 - Production
+With the Partitioning, OLAP, Data Mining and Real Application Testing options
+Windows NT Version V6.1  
+CPU                 : 2 - type 586, 2 Physical Cores
+Process Affinity    : 0x0x00000000
+Memory (Avail/Total): Ph:857M/2939M, Ph+PgF:2838M/5878M, VA:2604M/4095M 
+Instance name: orcl
+Redo thread mounted by this instance: 1
+Oracle process number: 41
+Windows thread id: 6172, image: ORACLE.EXE (SHAD)
+
+
+*** 2011-04-18 20:34:26.545
+*** SESSION ID:(125.2877) 2011-04-18 20:34:26.545
+*** CLIENT ID:() 2011-04-18 20:34:26.545
+*** SERVICE NAME:(SYS$USERS) 2011-04-18 20:34:26.545
+*** MODULE NAME:(SQL*Plus) 2011-04-18 20:34:26.545
+*** ACTION NAME:() 2011-04-18 20:34:26.545
+ 
+=====================
+PARSING IN CURSOR #3 len=32 dep=0 uid=92 oct=42 lid=92 tim=136156083170 hv=1569151342 ad='13d5fed0' sqlid='4tk6t8tfsfqbf'
+alter session set sql_trace=true
+END OF STMT
+EXEC #3:c=0,e=111,p=0,cr=0,cu=0,mis=1,r=0,dep=0,og=1,plh=0,tim=136156071233
+=====================
+PARSING IN CURSOR #4 len=52 dep=0 uid=92 oct=47 lid=92 tim=136156086759 hv=1029988163 ad='b50c0244' sqlid='9babjv8yq8ru3'
+BEGIN DBMS_OUTPUT.GET_LINES(:LINES, :NUMLINES); END;
+END OF STMT
+PARSE #4:c=0,e=71,p=0,cr=0,cu=0,mis=0,r=0,dep=0,og=1,plh=0,tim=136156086755
+EXEC #4:c=0,e=434,p=0,cr=3,cu=0,mis=0,r=1,dep=0,og=1,plh=0,tim=136156087418
+
+*** 2011-04-18 20:34:32.155
+CLOSE #3:c=0,e=15,dep=0,type=0,tim=136161701604
+CLOSE #4:c=0,e=41,dep=0,type=1,tim=136161701803
+=====================
+PARSING IN CURSOR #4 len=537 dep=1 uid=92 oct=3 lid=92 tim=136161704448 hv=510194220 ad='b2d21130' sqlid='0b1wrs0g6jwjc'
+SELECT /* OPT_DYN_SAMP */ /*+ ALL_ROWS IGNORE_WHERE_CLAUSE NO_PARALLEL(SAMPLESUB) opt_param('parallel_execution_enabled', 'false') NO_PARALLEL_INDEX(SAMPLESUB) NO_SQL_TUNE */ NVL(SUM(C1),:"SYS_B_0"), NVL(SUM(C2),:"SYS_B_1"), COUNT(DISTINCT C3), NVL(SUM(CASE WHEN C3 IS NULL THEN :"SYS_B_2" ELSE :"SYS_B_3" END),:"SYS_B_4") FROM (SELECT /*+ NO_PARALLEL("B") FULL("B") NO_PARALLEL_INDEX("B") */ :"SYS_B_5" AS C1, :"SYS_B_6" AS C2, "B"."SSN_SM" AS C3 FROM "BIG_PERSON" SAMPLE BLOCK (:"SYS_B_7" , :"SYS_B_8") SEED (:"SYS_B_9") "B") SAMPLESUB
+END OF STMT
+PARSE #4:c=0,e=1012,p=0,cr=0,cu=0,mis=1,r=0,dep=1,og=1,plh=0,tim=136161704445
+EXEC #4:c=15600,e=45347,p=0,cr=0,cu=0,mis=1,r=0,dep=1,og=1,plh=264525480,tim=136161750070
+FETCH #4:c=15600,e=17567,p=0,cr=65,cu=0,mis=0,r=1,dep=1,og=1,plh=264525480,tim=136161767822
+STAT #4 id=1 cnt=1 pid=0 pos=1 obj=0 op='SORT AGGREGATE (cr=65 pr=0 pw=0 time=0 us)'
+STAT #4 id=2 cnt=5746 pid=1 pos=1 obj=0 op='VIEW  VW_DAG_0 (cr=65 pr=0 pw=0 time=33321 us cost=20 size=231570 card=5146)'
+STAT #4 id=3 cnt=5746 pid=2 pos=1 obj=0 op='HASH GROUP BY (cr=65 pr=0 pw=0 time=12894 us cost=20 size=92628 card=5146)'
+STAT #4 id=4 cnt=5848 pid=3 pos=1 obj=76805 op='TABLE ACCESS SAMPLE BIG_PERSON (cr=65 pr=0 pw=0 time=12329 us cost=19 size=92628 card=5146)'
+CLOSE #4:c=0,e=20,dep=1,type=0,tim=136161786670
+=====================
+PARSING IN CURSOR #3 len=239 dep=0 uid=92 oct=3 lid=92 tim=136161793070 hv=1662454838 ad='b54b0d9c' sqlid='8ntdg7jjjf31q'
+select b.ssn_sm,b.dob,b.name_ind,b.states_us,
+                  u.uname,u.upc,p.gr_abbr_code,p.date_rec_stat
+           from big_person b, pers_unit_tbl u, pers_svcmbr_tbl p
+           where b.ssn_sm = p.ssn_sm and
+           p.upc = u.upc
+END OF STMT
+PARSE #3:c=31200,e=91178,p=0,cr=66,cu=0,mis=1,r=0,dep=0,og=1,plh=762562169,tim=136161793068
+EXEC #3:c=0,e=56,p=0,cr=0,cu=0,mis=0,r=0,dep=0,og=1,plh=762562169,tim=136161793332
+FETCH #3:c=15600,e=7520,p=0,cr=85,cu=0,mis=0,r=1,dep=0,og=1,plh=762562169,tim=136161800972
+FETCH #3:c=0,e=92,p=0,cr=1,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136161801574
+
+*** 2011-04-18 20:34:32.303
+FETCH #3:c=0,e=121,p=0,cr=2,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136161849497
+FETCH #3:c=0,e=146,p=0,cr=1,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136161893695
+FETCH #3:c=0,e=159,p=0,cr=2,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136161935655
+FETCH #3:c=0,e=114,p=0,cr=1,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136161978611
+FETCH #3:c=0,e=128,p=0,cr=2,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136162019064
+FETCH #3:c=0,e=148,p=0,cr=1,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136162061674
+FETCH #3:c=0,e=100,p=0,cr=2,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136162104155
+FETCH #3:c=0,e=116,p=0,cr=1,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136162146353
+FETCH #3:c=0,e=133,p=0,cr=2,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136162161835
+FETCH #3:c=0,e=110,p=0,cr=1,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136162170443
+FETCH #3:c=0,e=102,p=0,cr=2,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136162177859
+FETCH #3:c=0,e=110,p=0,cr=1,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136162185507
+FETCH #3:c=0,e=101,p=0,cr=1,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136162192849
+FETCH #3:c=0,e=99,p=0,cr=2,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136162201170
+FETCH #3:c=0,e=96,p=0,cr=1,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136162209307
+FETCH #3:c=0,e=113,p=0,cr=2,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136162217409
+FETCH #3:c=0,e=106,p=0,cr=1,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136162225606
+FETCH #3:c=0,e=115,p=0,cr=2,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136162232379
+FETCH #3:c=0,e=103,p=0,cr=2,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136162239858
+FETCH #3:c=0,e=91,p=0,cr=1,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136162249733
+FETCH #3:c=0,e=100,p=0,cr=2,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136162257531
+FETCH #3:c=0,e=112,p=0,cr=1,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136162264486
+FETCH #3:c=0,e=134,p=0,cr=2,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136162272310
+FETCH #3:c=0,e=89,p=0,cr=1,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136162279218
+FETCH #3:c=0,e=98,p=0,cr=1,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136162287128
+FETCH #3:c=0,e=113,p=0,cr=2,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136162294102
+FETCH #3:c=0,e=90,p=0,cr=1,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136162303814
+FETCH #3:c=0,e=103,p=0,cr=2,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136162310888
+FETCH #3:c=0,e=89,p=0,cr=1,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136162320072
+FETCH #3:c=0,e=112,p=0,cr=2,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136162327075
+FETCH #3:c=0,e=103,p=0,cr=2,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136162334301
+FETCH #3:c=0,e=92,p=0,cr=1,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136162342535
+FETCH #3:c=0,e=105,p=0,cr=2,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136162349666
+FETCH #3:c=0,e=94,p=0,cr=1,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136162356969
+FETCH #3:c=0,e=116,p=0,cr=2,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136162365595
+FETCH #3:c=0,e=104,p=0,cr=1,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136162373376
+FETCH #3:c=0,e=124,p=0,cr=2,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136162380247
+FETCH #3:c=0,e=101,p=0,cr=2,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136162389117
+FETCH #3:c=0,e=89,p=0,cr=1,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136162399264
+FETCH #3:c=0,e=128,p=0,cr=2,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136162407501
+FETCH #3:c=0,e=91,p=0,cr=1,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136162416862
+FETCH #3:c=0,e=111,p=0,cr=2,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136162424415
+FETCH #3:c=0,e=114,p=0,cr=2,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136162433634
+FETCH #3:c=0,e=106,p=0,cr=1,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136162441642
+FETCH #3:c=0,e=108,p=0,cr=2,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136162448391
+FETCH #3:c=0,e=91,p=0,cr=1,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136162455949
+FETCH #3:c=0,e=105,p=0,cr=2,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136162465146
+FETCH #3:c=0,e=101,p=0,cr=2,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136162472705
+FETCH #3:c=0,e=92,p=0,cr=1,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136162479680
+FETCH #3:c=0,e=136,p=0,cr=2,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136162486933
+FETCH #3:c=0,e=107,p=0,cr=1,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136162494631
+FETCH #3:c=0,e=124,p=0,cr=2,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136162501666
+FETCH #3:c=0,e=112,p=0,cr=2,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136162513331
+FETCH #3:c=0,e=103,p=0,cr=1,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136162520512
+FETCH #3:c=0,e=121,p=0,cr=2,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136162528412
+FETCH #3:c=0,e=99,p=0,cr=1,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136162535337
+FETCH #3:c=0,e=104,p=0,cr=2,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136162545340
+FETCH #3:c=0,e=88,p=0,cr=1,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136162552035
+FETCH #3:c=0,e=104,p=0,cr=2,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136162559145
+FETCH #3:c=0,e=90,p=0,cr=1,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136162567019
+FETCH #3:c=0,e=115,p=0,cr=2,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136162575841
+FETCH #3:c=0,e=100,p=0,cr=2,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136162583457
+FETCH #3:c=0,e=95,p=0,cr=1,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136162590980
+FETCH #3:c=0,e=133,p=0,cr=2,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136162598654
+FETCH #3:c=0,e=91,p=0,cr=1,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136162606082
+FETCH #3:c=0,e=131,p=0,cr=2,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136162613458
+FETCH #3:c=0,e=99,p=0,cr=2,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136162620748
+FETCH #3:c=0,e=96,p=0,cr=1,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136162629007
+FETCH #3:c=0,e=108,p=0,cr=2,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136162638240
+FETCH #3:c=0,e=94,p=0,cr=1,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136162645057
+FETCH #3:c=0,e=93,p=0,cr=1,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136162651736
+FETCH #3:c=0,e=106,p=0,cr=2,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136162660062
+FETCH #3:c=0,e=95,p=0,cr=1,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136162670187
+FETCH #3:c=0,e=104,p=0,cr=2,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136162678861
+FETCH #3:c=0,e=111,p=0,cr=2,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136162688720
+FETCH #3:c=0,e=101,p=0,cr=1,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136162697030
+FETCH #3:c=0,e=136,p=0,cr=2,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136162706250
+FETCH #3:c=0,e=95,p=0,cr=1,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136162722556
+FETCH #3:c=0,e=155,p=0,cr=2,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136162730431
+FETCH #3:c=0,e=85,p=0,cr=1,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136162738231
+FETCH #3:c=0,e=109,p=0,cr=2,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136162744979
+FETCH #3:c=0,e=108,p=0,cr=2,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136162751725
+FETCH #3:c=0,e=97,p=0,cr=1,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136162759495
+FETCH #3:c=0,e=100,p=0,cr=2,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136162766256
+FETCH #3:c=0,e=109,p=0,cr=1,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136162773408
+FETCH #3:c=0,e=98,p=0,cr=2,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136162780599
+FETCH #3:c=0,e=96,p=0,cr=1,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136162790579
+FETCH #3:c=0,e=105,p=0,cr=2,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136162797922
+FETCH #3:c=0,e=96,p=0,cr=1,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136162805370
+FETCH #3:c=0,e=110,p=0,cr=1,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136162812398
+FETCH #3:c=0,e=130,p=0,cr=2,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136162819358
+FETCH #3:c=0,e=86,p=0,cr=1,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136162829208
+FETCH #3:c=0,e=103,p=0,cr=2,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136162835838
+FETCH #3:c=0,e=91,p=0,cr=1,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136162844034
+
+*** 2011-04-18 20:34:33.305
+FETCH #3:c=0,e=101,p=0,cr=2,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136162852303
+FETCH #3:c=0,e=120,p=0,cr=2,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136162862374
+FETCH #3:c=0,e=85,p=0,cr=1,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136162869289
+FETCH #3:c=0,e=98,p=0,cr=2,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136162876751
+FETCH #3:c=0,e=87,p=0,cr=1,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136162886964
+FETCH #3:c=0,e=98,p=0,cr=2,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136162894304
+FETCH #3:c=0,e=168,p=0,cr=1,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136162902228
+FETCH #3:c=0,e=91,p=0,cr=1,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136162910909
+FETCH #3:c=0,e=104,p=0,cr=2,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136162918843
+FETCH #3:c=0,e=132,p=0,cr=1,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136162926656
+FETCH #3:c=0,e=107,p=0,cr=2,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136162934190
+FETCH #3:c=0,e=90,p=0,cr=1,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136162942986
+FETCH #3:c=0,e=100,p=0,cr=2,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136162950716
+FETCH #3:c=0,e=97,p=0,cr=2,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136162958023
+FETCH #3:c=0,e=164,p=0,cr=1,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136162964852
+FETCH #3:c=0,e=123,p=0,cr=2,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136162975340
+FETCH #3:c=0,e=93,p=0,cr=1,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136162984438
+FETCH #3:c=0,e=101,p=0,cr=2,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136162992067
+FETCH #3:c=0,e=99,p=0,cr=1,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136162998890
+FETCH #3:c=0,e=118,p=0,cr=2,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136163006375
+FETCH #3:c=0,e=124,p=0,cr=1,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136163013509
+FETCH #3:c=0,e=107,p=0,cr=2,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136163021064
+FETCH #3:c=0,e=88,p=0,cr=1,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136163030167
+FETCH #3:c=0,e=124,p=0,cr=1,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136163037315
+FETCH #3:c=0,e=104,p=0,cr=2,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136163045939
+FETCH #3:c=0,e=90,p=0,cr=1,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136163054542
+FETCH #3:c=0,e=106,p=0,cr=2,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136163063774
+FETCH #3:c=0,e=105,p=0,cr=1,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136163070561
+FETCH #3:c=0,e=100,p=0,cr=2,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136163078075
+FETCH #3:c=0,e=88,p=0,cr=1,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136163086124
+FETCH #3:c=0,e=112,p=0,cr=2,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136163096682
+FETCH #3:c=0,e=99,p=0,cr=2,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136163103583
+FETCH #3:c=0,e=91,p=0,cr=1,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136163110931
+FETCH #3:c=0,e=133,p=0,cr=2,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136163117674
+FETCH #3:c=15600,e=110,p=0,cr=1,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136163125423
+FETCH #3:c=0,e=94,p=0,cr=2,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136163132543
+FETCH #3:c=0,e=104,p=0,cr=1,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136163141048
+FETCH #3:c=0,e=131,p=0,cr=2,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136163149072
+FETCH #3:c=0,e=89,p=0,cr=1,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136163157009
+FETCH #3:c=0,e=89,p=0,cr=1,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136163164308
+FETCH #3:c=0,e=95,p=0,cr=2,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136163171073
+FETCH #3:c=0,e=92,p=0,cr=1,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136163180304
+FETCH #3:c=0,e=99,p=0,cr=2,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136163187695
+FETCH #3:c=0,e=88,p=0,cr=1,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136163195061
+FETCH #3:c=0,e=100,p=0,cr=2,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136163205213
+FETCH #3:c=0,e=100,p=0,cr=1,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136163213005
+FETCH #3:c=0,e=101,p=0,cr=2,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136163219862
+FETCH #3:c=0,e=103,p=0,cr=2,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136163227772
+FETCH #3:c=0,e=103,p=0,cr=1,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136163235029
+FETCH #3:c=0,e=98,p=0,cr=2,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136163243213
+FETCH #3:c=0,e=124,p=0,cr=1,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136163250953
+FETCH #3:c=0,e=99,p=0,cr=2,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136163258793
+FETCH #3:c=0,e=117,p=0,cr=1,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136163265608
+FETCH #3:c=0,e=117,p=0,cr=1,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136163273968
+FETCH #3:c=0,e=91,p=0,cr=1,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136163280997
+FETCH #3:c=0,e=88,p=0,cr=1,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136163288467
+FETCH #3:c=0,e=87,p=0,cr=1,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136163296454
+FETCH #3:c=0,e=100,p=0,cr=2,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136163304852
+FETCH #3:c=0,e=97,p=0,cr=1,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136163312590
+FETCH #3:c=0,e=98,p=0,cr=2,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136163320841
+FETCH #3:c=0,e=89,p=0,cr=1,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136163330752
+FETCH #3:c=0,e=96,p=0,cr=2,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136163337791
+FETCH #3:c=0,e=100,p=0,cr=2,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136163345130
+FETCH #3:c=0,e=105,p=0,cr=1,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136163353360
+FETCH #3:c=0,e=193,p=0,cr=2,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136163363554
+FETCH #3:c=0,e=88,p=0,cr=1,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136163374691
+FETCH #3:c=0,e=100,p=0,cr=2,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136163382082
+FETCH #3:c=0,e=106,p=0,cr=1,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136163390648
+FETCH #3:c=0,e=94,p=0,cr=2,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136163397652
+FETCH #3:c=0,e=89,p=0,cr=1,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136163404785
+FETCH #3:c=0,e=111,p=0,cr=2,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136163412424
+FETCH #3:c=0,e=94,p=0,cr=1,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136163419372
+FETCH #3:c=0,e=107,p=0,cr=2,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136163428176
+FETCH #3:c=0,e=87,p=0,cr=1,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136163435224
+FETCH #3:c=0,e=118,p=0,cr=2,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136163444577
+FETCH #3:c=0,e=93,p=0,cr=1,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136163453034
+FETCH #3:c=0,e=90,p=0,cr=1,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136163461504
+FETCH #3:c=0,e=92,p=0,cr=1,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136163468312
+FETCH #3:c=0,e=179,p=0,cr=2,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136163475818
+FETCH #3:c=0,e=92,p=0,cr=1,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136163484716
+FETCH #3:c=0,e=106,p=0,cr=2,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136163493978
+FETCH #3:c=0,e=111,p=0,cr=2,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136163500961
+FETCH #3:c=0,e=92,p=0,cr=1,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136163508031
+FETCH #3:c=0,e=112,p=0,cr=2,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136163515064
+FETCH #3:c=0,e=95,p=0,cr=1,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136163522201
+FETCH #3:c=0,e=102,p=0,cr=2,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136163529828
+FETCH #3:c=0,e=93,p=0,cr=1,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136163537997
+FETCH #3:c=0,e=118,p=0,cr=2,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136163545674
+FETCH #3:c=0,e=85,p=0,cr=1,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136163554747
+FETCH #3:c=0,e=100,p=0,cr=2,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136163562612
+FETCH #3:c=0,e=99,p=0,cr=1,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136163570037
+FETCH #3:c=15600,e=124,p=0,cr=2,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136163578420
+FETCH #3:c=0,e=122,p=0,cr=1,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136163586030
+FETCH #3:c=0,e=163,p=0,cr=2,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136163593836
+FETCH #3:c=0,e=96,p=0,cr=1,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136163602927
+FETCH #3:c=0,e=103,p=0,cr=2,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136163610352
+FETCH #3:c=0,e=91,p=0,cr=1,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136163617176
+FETCH #3:c=0,e=105,p=0,cr=2,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136163626428
+FETCH #3:c=0,e=97,p=0,cr=1,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136163634922
+FETCH #3:c=0,e=100,p=0,cr=2,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136163642667
+FETCH #3:c=0,e=91,p=0,cr=1,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136163649963
+FETCH #3:c=0,e=840,p=0,cr=2,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136163657758
+FETCH #3:c=0,e=111,p=0,cr=1,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136163665546
+FETCH #3:c=0,e=117,p=0,cr=2,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136163674113
+FETCH #3:c=0,e=90,p=0,cr=1,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136163681134
+FETCH #3:c=0,e=126,p=0,cr=1,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136163688633
+FETCH #3:c=0,e=179,p=0,cr=2,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136163696205
+FETCH #3:c=0,e=99,p=0,cr=1,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136163703785
+FETCH #3:c=0,e=108,p=0,cr=2,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136163711254
+FETCH #3:c=0,e=91,p=0,cr=1,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136163718166
+FETCH #3:c=0,e=97,p=0,cr=2,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136163725987
+FETCH #3:c=0,e=97,p=0,cr=1,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136163732705
+FETCH #3:c=0,e=119,p=0,cr=2,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136163739624
+FETCH #3:c=0,e=92,p=0,cr=1,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136163748929
+FETCH #3:c=0,e=100,p=0,cr=2,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136163755739
+FETCH #3:c=0,e=94,p=0,cr=1,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136163763290
+FETCH #3:c=0,e=126,p=0,cr=2,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136163770943
+FETCH #3:c=0,e=88,p=0,cr=1,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136163778206
+FETCH #3:c=0,e=103,p=0,cr=2,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136163786211
+FETCH #3:c=0,e=110,p=0,cr=2,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136163793917
+FETCH #3:c=0,e=115,p=0,cr=1,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136163801338
+FETCH #3:c=0,e=98,p=0,cr=2,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136163810089
+FETCH #3:c=0,e=92,p=0,cr=1,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136163818350
+FETCH #3:c=0,e=101,p=0,cr=2,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136163825765
+FETCH #3:c=0,e=98,p=0,cr=1,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136163832555
+FETCH #3:c=0,e=123,p=0,cr=2,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136163841076
+
+*** 2011-04-18 20:34:34.303
+FETCH #3:c=0,e=107,p=0,cr=1,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136163849661
+FETCH #3:c=0,e=107,p=0,cr=2,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136163856472
+FETCH #3:c=0,e=91,p=0,cr=1,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136163865714
+FETCH #3:c=0,e=98,p=0,cr=2,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136163875378
+FETCH #3:c=0,e=94,p=0,cr=1,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136163884197
+FETCH #3:c=0,e=108,p=0,cr=2,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136163891334
+FETCH #3:c=0,e=92,p=0,cr=1,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136163898597
+FETCH #3:c=0,e=138,p=0,cr=2,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136163905837
+FETCH #3:c=0,e=90,p=0,cr=1,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136163913280
+FETCH #3:c=0,e=99,p=0,cr=2,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136163922618
+FETCH #3:c=0,e=87,p=0,cr=1,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136163930365
+FETCH #3:c=0,e=100,p=0,cr=2,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136163937380
+FETCH #3:c=0,e=92,p=0,cr=1,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136163945216
+FETCH #3:c=0,e=91,p=0,cr=2,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136163953274
+FETCH #3:c=0,e=88,p=0,cr=1,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136163960735
+FETCH #3:c=0,e=98,p=0,cr=2,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136163970089
+FETCH #3:c=0,e=100,p=0,cr=1,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136163978093
+FETCH #3:c=0,e=108,p=0,cr=2,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136163985688
+FETCH #3:c=0,e=95,p=0,cr=1,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136163993192
+FETCH #3:c=0,e=101,p=0,cr=2,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136164000031
+FETCH #3:c=0,e=111,p=0,cr=1,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136164006727
+FETCH #3:c=0,e=104,p=0,cr=2,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136164014331
+FETCH #3:c=0,e=127,p=0,cr=1,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136164021414
+FETCH #3:c=0,e=100,p=0,cr=2,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136164028877
+FETCH #3:c=0,e=95,p=0,cr=1,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136164035907
+FETCH #3:c=0,e=134,p=0,cr=2,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136164043579
+FETCH #3:c=0,e=98,p=0,cr=1,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136164050856
+FETCH #3:c=0,e=101,p=0,cr=2,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136164057919
+FETCH #3:c=0,e=90,p=0,cr=1,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136164065267
+FETCH #3:c=0,e=121,p=0,cr=2,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136164073185
+FETCH #3:c=0,e=112,p=0,cr=1,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136164080926
+FETCH #3:c=0,e=126,p=0,cr=2,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136164088531
+FETCH #3:c=0,e=88,p=0,cr=1,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136164097082
+FETCH #3:c=0,e=117,p=0,cr=2,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136164104369
+FETCH #3:c=0,e=103,p=0,cr=1,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136164112721
+FETCH #3:c=0,e=113,p=0,cr=2,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136164119971
+FETCH #3:c=0,e=122,p=0,cr=1,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136164127509
+FETCH #3:c=0,e=101,p=0,cr=2,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136164134097
+FETCH #3:c=0,e=88,p=0,cr=1,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136164141390
+FETCH #3:c=0,e=101,p=0,cr=2,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136164149287
+FETCH #3:c=0,e=103,p=0,cr=1,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136164156472
+FETCH #3:c=0,e=99,p=0,cr=2,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136164164010
+FETCH #3:c=0,e=119,p=0,cr=1,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136164172456
+FETCH #3:c=0,e=100,p=0,cr=2,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136164181847
+FETCH #3:c=0,e=87,p=0,cr=1,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136164190321
+FETCH #3:c=0,e=98,p=0,cr=2,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136164197840
+FETCH #3:c=0,e=93,p=0,cr=1,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136164207450
+FETCH #3:c=0,e=132,p=0,cr=2,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136164216691
+FETCH #3:c=0,e=90,p=0,cr=1,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136164223189
+FETCH #3:c=0,e=107,p=0,cr=2,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136164230910
+FETCH #3:c=0,e=122,p=0,cr=1,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136164238130
+FETCH #3:c=0,e=121,p=0,cr=2,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136164248980
+FETCH #3:c=0,e=90,p=0,cr=1,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136164256289
+FETCH #3:c=0,e=99,p=0,cr=2,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136164264000
+FETCH #3:c=0,e=106,p=0,cr=1,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136164271151
+FETCH #3:c=0,e=97,p=0,cr=2,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136164281356
+FETCH #3:c=0,e=91,p=0,cr=1,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136164288296
+FETCH #3:c=0,e=98,p=0,cr=2,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136164295959
+FETCH #3:c=0,e=91,p=0,cr=1,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136164303312
+FETCH #3:c=0,e=97,p=0,cr=2,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136164311040
+FETCH #3:c=0,e=103,p=0,cr=1,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136164318145
+FETCH #3:c=0,e=98,p=0,cr=2,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136164327106
+FETCH #3:c=0,e=87,p=0,cr=1,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136164335117
+FETCH #3:c=0,e=98,p=0,cr=2,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136164342217
+FETCH #3:c=0,e=178,p=0,cr=1,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136164349980
+FETCH #3:c=0,e=99,p=0,cr=2,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136164357944
+FETCH #3:c=0,e=107,p=0,cr=1,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136164366576
+FETCH #3:c=0,e=106,p=0,cr=2,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136164375219
+FETCH #3:c=0,e=99,p=0,cr=1,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136164384373
+FETCH #3:c=0,e=111,p=0,cr=2,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136164391439
+FETCH #3:c=0,e=95,p=0,cr=1,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136164400360
+FETCH #3:c=0,e=96,p=0,cr=2,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136164407844
+FETCH #3:c=0,e=93,p=0,cr=1,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136164414980
+FETCH #3:c=0,e=98,p=0,cr=2,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136164422297
+FETCH #3:c=0,e=97,p=0,cr=1,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136164431904
+FETCH #3:c=0,e=104,p=0,cr=2,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136164440861
+FETCH #3:c=0,e=90,p=0,cr=1,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136164448105
+FETCH #3:c=0,e=144,p=0,cr=2,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136164455362
+FETCH #3:c=0,e=122,p=0,cr=1,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136164462600
+FETCH #3:c=0,e=95,p=0,cr=2,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136164469834
+FETCH #3:c=0,e=546,p=0,cr=1,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136164476984
+FETCH #3:c=0,e=101,p=0,cr=2,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136164485987
+FETCH #3:c=0,e=83,p=0,cr=1,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136164494385
+FETCH #3:c=0,e=95,p=0,cr=2,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136164504296
+FETCH #3:c=0,e=90,p=0,cr=1,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136164511997
+FETCH #3:c=0,e=105,p=0,cr=2,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136164518833
+FETCH #3:c=0,e=101,p=0,cr=1,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136164528605
+FETCH #3:c=0,e=98,p=0,cr=2,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136164536872
+FETCH #3:c=0,e=85,p=0,cr=1,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136164543336
+FETCH #3:c=0,e=102,p=0,cr=2,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136164550735
+FETCH #3:c=0,e=122,p=0,cr=1,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136164561772
+FETCH #3:c=0,e=105,p=0,cr=2,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136164569360
+FETCH #3:c=0,e=97,p=0,cr=1,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136164575999
+FETCH #3:c=0,e=103,p=0,cr=2,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136164584075
+FETCH #3:c=0,e=93,p=0,cr=1,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136164592037
+FETCH #3:c=0,e=110,p=0,cr=2,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136164602169
+FETCH #3:c=0,e=86,p=0,cr=1,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136164611303
+FETCH #3:c=0,e=106,p=0,cr=2,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136164617943
+FETCH #3:c=0,e=91,p=0,cr=1,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136164626179
+FETCH #3:c=0,e=107,p=0,cr=2,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136164634736
+FETCH #3:c=0,e=103,p=0,cr=1,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136164641473
+FETCH #3:c=0,e=127,p=0,cr=2,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136164649566
+FETCH #3:c=0,e=106,p=0,cr=1,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136164659000
+FETCH #3:c=0,e=113,p=0,cr=2,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136164669110
+FETCH #3:c=0,e=131,p=0,cr=1,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136164676102
+FETCH #3:c=0,e=110,p=0,cr=2,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136164683828
+FETCH #3:c=0,e=88,p=0,cr=1,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136164693181
+FETCH #3:c=0,e=97,p=0,cr=2,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136164702987
+FETCH #3:c=0,e=94,p=0,cr=1,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136164710531
+FETCH #3:c=0,e=98,p=0,cr=2,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136164718902
+FETCH #3:c=0,e=171,p=0,cr=1,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136164727474
+FETCH #3:c=0,e=115,p=0,cr=2,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136164736615
+FETCH #3:c=0,e=173,p=0,cr=1,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136164744245
+FETCH #3:c=0,e=108,p=0,cr=2,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136164751400
+FETCH #3:c=0,e=88,p=0,cr=1,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136164758142
+FETCH #3:c=0,e=99,p=0,cr=2,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136164765336
+FETCH #3:c=0,e=89,p=0,cr=1,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136164774122
+FETCH #3:c=0,e=122,p=0,cr=2,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136164782383
+FETCH #3:c=0,e=93,p=0,cr=1,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136164789417
+FETCH #3:c=0,e=99,p=0,cr=2,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136164796795
+FETCH #3:c=0,e=106,p=0,cr=1,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136164804035
+FETCH #3:c=0,e=109,p=0,cr=2,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136164813436
+FETCH #3:c=0,e=88,p=0,cr=1,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136164821340
+FETCH #3:c=0,e=95,p=0,cr=2,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136164829123
+FETCH #3:c=0,e=86,p=0,cr=1,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136164836173
+FETCH #3:c=0,e=164,p=0,cr=2,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136164843428
+
+*** 2011-04-18 20:34:35.305
+FETCH #3:c=0,e=86,p=0,cr=1,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136164852200
+FETCH #3:c=0,e=98,p=0,cr=2,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136164859419
+FETCH #3:c=0,e=87,p=0,cr=1,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136164866870
+FETCH #3:c=0,e=98,p=0,cr=2,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136164874082
+FETCH #3:c=0,e=99,p=0,cr=1,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136164884037
+FETCH #3:c=0,e=126,p=0,cr=2,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136164891093
+FETCH #3:c=0,e=96,p=0,cr=1,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136164898955
+FETCH #3:c=0,e=112,p=0,cr=2,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136164907055
+FETCH #3:c=0,e=90,p=0,cr=1,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136164915673
+FETCH #3:c=0,e=100,p=0,cr=2,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136164922295
+FETCH #3:c=0,e=90,p=0,cr=1,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136164931870
+FETCH #3:c=0,e=124,p=0,cr=2,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136164938584
+FETCH #3:c=0,e=91,p=0,cr=1,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136164946911
+FETCH #3:c=0,e=107,p=0,cr=2,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136164953712
+FETCH #3:c=0,e=113,p=0,cr=1,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136164960617
+FETCH #3:c=0,e=98,p=0,cr=2,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136164968189
+FETCH #3:c=0,e=89,p=0,cr=1,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136164975025
+FETCH #3:c=15600,e=137,p=0,cr=2,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136164982550
+FETCH #3:c=0,e=98,p=0,cr=1,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136164991912
+FETCH #3:c=0,e=135,p=0,cr=2,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136164999118
+FETCH #3:c=0,e=89,p=0,cr=1,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136165006157
+FETCH #3:c=0,e=94,p=0,cr=2,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136165014437
+FETCH #3:c=0,e=98,p=0,cr=1,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136165022039
+FETCH #3:c=0,e=94,p=0,cr=2,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136165030045
+FETCH #3:c=0,e=140,p=0,cr=1,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136165037063
+FETCH #3:c=0,e=837,p=0,cr=2,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136165046021
+FETCH #3:c=0,e=102,p=0,cr=1,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136165055504
+FETCH #3:c=0,e=91,p=0,cr=1,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136165062960
+FETCH #3:c=0,e=93,p=0,cr=1,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136165070143
+FETCH #3:c=0,e=90,p=0,cr=1,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136165076708
+FETCH #3:c=0,e=99,p=0,cr=2,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136165086292
+FETCH #3:c=0,e=104,p=0,cr=1,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136165094834
+FETCH #3:c=0,e=104,p=0,cr=2,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136165102365
+FETCH #3:c=0,e=159,p=0,cr=1,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136165109521
+FETCH #3:c=0,e=126,p=0,cr=2,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136165117553
+FETCH #3:c=0,e=90,p=0,cr=1,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136165124298
+FETCH #3:c=0,e=141,p=0,cr=2,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136165131593
+FETCH #3:c=0,e=104,p=0,cr=1,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136165140161
+FETCH #3:c=0,e=96,p=0,cr=2,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136165148129
+FETCH #3:c=0,e=88,p=0,cr=1,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136165155060
+FETCH #3:c=0,e=135,p=0,cr=2,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136165164694
+FETCH #3:c=0,e=91,p=0,cr=1,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136165172267
+FETCH #3:c=0,e=100,p=0,cr=2,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136165181586
+FETCH #3:c=0,e=92,p=0,cr=1,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136165188331
+FETCH #3:c=0,e=104,p=0,cr=2,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136165195228
+FETCH #3:c=0,e=94,p=0,cr=1,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136165202406
+FETCH #3:c=0,e=98,p=0,cr=2,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136165210089
+FETCH #3:c=0,e=113,p=0,cr=1,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136165218014
+FETCH #3:c=0,e=104,p=0,cr=2,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136165225172
+FETCH #3:c=0,e=113,p=0,cr=1,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136165232531
+FETCH #3:c=0,e=98,p=0,cr=2,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136165240048
+FETCH #3:c=0,e=89,p=0,cr=1,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136165247406
+FETCH #3:c=0,e=99,p=0,cr=2,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136165256226
+FETCH #3:c=0,e=102,p=0,cr=1,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136165263445
+FETCH #3:c=0,e=134,p=0,cr=2,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136165272600
+FETCH #3:c=0,e=82,p=0,cr=1,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136165280213
+FETCH #3:c=0,e=84,p=0,cr=1,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136165287285
+FETCH #3:c=0,e=98,p=0,cr=2,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136165294953
+FETCH #3:c=0,e=102,p=0,cr=1,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136165302404
+FETCH #3:c=0,e=98,p=0,cr=2,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136165309368
+FETCH #3:c=0,e=86,p=0,cr=1,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136165317230
+FETCH #3:c=0,e=112,p=0,cr=2,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136165324908
+FETCH #3:c=0,e=120,p=0,cr=1,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136165332311
+FETCH #3:c=0,e=104,p=0,cr=2,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136165339179
+FETCH #3:c=0,e=91,p=0,cr=1,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136165347318
+FETCH #3:c=0,e=140,p=0,cr=2,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136165355585
+FETCH #3:c=0,e=88,p=0,cr=1,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136165362860
+FETCH #3:c=0,e=129,p=0,cr=2,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136165370586
+FETCH #3:c=0,e=113,p=0,cr=1,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136165377676
+FETCH #3:c=0,e=130,p=0,cr=2,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136165385581
+FETCH #3:c=0,e=92,p=0,cr=1,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136165393129
+FETCH #3:c=0,e=110,p=0,cr=2,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136165401011
+FETCH #3:c=0,e=85,p=0,cr=1,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136165408278
+FETCH #3:c=0,e=95,p=0,cr=2,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136165418039
+FETCH #3:c=0,e=100,p=0,cr=1,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136165425515
+FETCH #3:c=0,e=103,p=0,cr=2,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136165434393
+FETCH #3:c=0,e=142,p=0,cr=1,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136165441382
+FETCH #3:c=0,e=93,p=0,cr=1,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136165448522
+FETCH #3:c=0,e=91,p=0,cr=1,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136165455398
+FETCH #3:c=0,e=107,p=0,cr=2,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136165465211
+FETCH #3:c=0,e=91,p=0,cr=1,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136165473258
+FETCH #3:c=0,e=100,p=0,cr=2,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136165479878
+FETCH #3:c=0,e=106,p=0,cr=1,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136165487524
+FETCH #3:c=0,e=102,p=0,cr=2,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136165495081
+FETCH #3:c=0,e=89,p=0,cr=1,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136165502790
+FETCH #3:c=0,e=120,p=0,cr=2,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136165509794
+FETCH #3:c=0,e=88,p=0,cr=1,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136165517303
+FETCH #3:c=0,e=145,p=0,cr=2,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136165525885
+FETCH #3:c=0,e=99,p=0,cr=1,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136165533224
+FETCH #3:c=0,e=104,p=0,cr=2,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136165542502
+FETCH #3:c=0,e=111,p=0,cr=1,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136165550102
+FETCH #3:c=0,e=99,p=0,cr=2,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136165557269
+FETCH #3:c=0,e=100,p=0,cr=1,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136165564153
+FETCH #3:c=0,e=102,p=0,cr=2,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136165572807
+FETCH #3:c=0,e=129,p=0,cr=1,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136165579665
+FETCH #3:c=0,e=100,p=0,cr=2,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136165587386
+FETCH #3:c=0,e=103,p=0,cr=1,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136165595852
+FETCH #3:c=0,e=92,p=0,cr=2,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136165603277
+FETCH #3:c=0,e=87,p=0,cr=1,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136165613359
+FETCH #3:c=0,e=90,p=0,cr=1,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136165621212
+FETCH #3:c=0,e=97,p=0,cr=2,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136165629137
+FETCH #3:c=0,e=85,p=0,cr=1,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136165636615
+FETCH #3:c=0,e=106,p=0,cr=2,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136165645010
+FETCH #3:c=0,e=128,p=0,cr=1,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136165653362
+FETCH #3:c=0,e=93,p=0,cr=2,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136165660361
+FETCH #3:c=0,e=91,p=0,cr=1,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136165667962
+FETCH #3:c=0,e=116,p=0,cr=2,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136165676171
+FETCH #3:c=0,e=93,p=0,cr=1,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136165684042
+FETCH #3:c=0,e=94,p=0,cr=2,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136165691067
+FETCH #3:c=0,e=85,p=0,cr=1,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136165698901
+FETCH #3:c=0,e=86,p=0,cr=1,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136165706187
+FETCH #3:c=0,e=123,p=0,cr=2,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136165712665
+FETCH #3:c=0,e=93,p=0,cr=1,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136165720357
+FETCH #3:c=0,e=121,p=0,cr=2,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136165729991
+FETCH #3:c=0,e=97,p=0,cr=1,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136165738792
+FETCH #3:c=0,e=99,p=0,cr=2,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136165746858
+FETCH #3:c=0,e=89,p=0,cr=1,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136165754172
+FETCH #3:c=0,e=98,p=0,cr=2,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136165761243
+FETCH #3:c=0,e=138,p=0,cr=1,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136165770710
+FETCH #3:c=0,e=95,p=0,cr=1,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136165779769
+FETCH #3:c=0,e=107,p=0,cr=2,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136165788812
+FETCH #3:c=0,e=110,p=0,cr=1,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136165795644
+FETCH #3:c=0,e=110,p=0,cr=2,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136165804400
+FETCH #3:c=0,e=84,p=0,cr=1,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136165812431
+FETCH #3:c=0,e=122,p=0,cr=2,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136165820048
+FETCH #3:c=0,e=88,p=0,cr=1,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136165826773
+FETCH #3:c=0,e=108,p=0,cr=2,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136165835469
+FETCH #3:c=0,e=83,p=0,cr=1,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136165844092
+
+*** 2011-04-18 20:34:36.305
+FETCH #3:c=0,e=105,p=0,cr=1,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136165851550
+FETCH #3:c=0,e=98,p=0,cr=2,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136165859444
+FETCH #3:c=0,e=92,p=0,cr=1,cu=0,mis=0,r=15,dep=0,og=1,plh=762562169,tim=136165867888
+FETCH #3:c=0,e=744,p=0,cr=4,cu=0,mis=0,r=4,dep=0,og=1,plh=762562169,tim=136165875631
+STAT #3 id=1 cnt=7175 pid=0 pos=1 obj=0 op='HASH JOIN  (cr=802 pr=0 pw=0 time=47655 us cost=97 size=635812 card=6911)'
+STAT #3 id=2 cnt=6899 pid=1 pos=1 obj=76805 op='TABLE ACCESS FULL BIG_PERSON (cr=76 pr=0 pw=0 time=10857 us cost=22 size=223608 card=6776)'
+STAT #3 id=3 cnt=6899 pid=1 pos=2 obj=0 op='HASH JOIN  (cr=726 pr=0 pw=0 time=71713 us cost=74 size=407041 card=6899)'
+STAT #3 id=4 cnt=130 pid=3 pos=1 obj=76581 op='TABLE ACCESS FULL PERS_UNIT_TBL (cr=5 pr=0 pw=0 time=193 us cost=3 size=3770 card=130)'
+STAT #3 id=5 cnt=6899 pid=3 pos=2 obj=76548 op='TABLE ACCESS FULL PERS_SVCMBR_TBL (cr=721 pr=0 pw=0 time=28633 us cost=70 size=206970 card=6899)'
+=====================
+PARSING IN CURSOR #4 len=52 dep=0 uid=92 oct=47 lid=92 tim=136165879027 hv=1029988163 ad='b50c0244' sqlid='9babjv8yq8ru3'
+BEGIN DBMS_OUTPUT.GET_LINES(:LINES, :NUMLINES); END;
+END OF STMT
+PARSE #4:c=0,e=48,p=0,cr=0,cu=0,mis=0,r=0,dep=0,og=1,plh=0,tim=136165879025
+EXEC #4:c=0,e=250,p=0,cr=0,cu=0,mis=0,r=1,dep=0,og=1,plh=0,tim=136165879462
+
+*** 2011-04-18 20:34:52.345
+CLOSE #3:c=0,e=32,dep=0,type=0,tim=136181891939
+CLOSE #4:c=0,e=29,dep=0,type=3,tim=136181892085
+=====================
+PARSING IN CURSOR #3 len=33 dep=0 uid=92 oct=42 lid=92 tim=136181892758 hv=525901419 ad='13d5fed0' sqlid='aam2chsgpj7mb'
+alter session set sql_trace=false
+END OF STMT
+PARSE #3:c=15600,e=601,p=0,cr=0,cu=0,mis=1,r=0,dep=0,og=1,plh=0,tim=136181892754
+EXEC #3:c=0,e=114,p=0,cr=0,cu=0,mis=0,r=0,dep=0,og=1,plh=0,tim=136181893042

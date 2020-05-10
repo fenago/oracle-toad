@@ -1,0 +1,84 @@
+Help with Query Tuning
+
+up vote
+4
+down vote
+favorite
+1
+EDIT - drachenstern: see this question for more information on this problem and on the source of his query below:
+
+Group data by non-unique keys by distinct time range
+Can someone please advise some tuning options for the following query? When running for one project it is fast but for all the records it takes hours to finish running. NUM_ROWS in PA table: 2,101,528
+
+I want to group data by non-unique keys by a distinct time range
+
+SELECT project_nbr, status, MIN(aud_timestamp) start_dt, end_dt 
+FROM (
+    SELECT a.project_nbr
+         , status
+         , aud_timestamp
+         , ( SELECT MAX(p.aud_timestamp) 
+             FROM pa p 
+             WHERE p.project_nbr = a.project_nbr 
+               AND p.status = a.status 
+               AND p.aud_timestamp >= a.aud_timestamp
+               AND NOT EXISTS (
+                            SELECT NULL 
+                            FROM pa q
+                            WHERE q.project_nbr = p.project_nbr 
+                              AND q.status <> p.status 
+                              AND q.aud_timestamp < p.aud_timestamp 
+                              AND q.aud_timestamp > a.aud_timestamp
+                               )
+            ) end_dt
+     FROM pa a
+     )
+GROUP BY project_nbr, status, end_dt
+oracle-11g-r2 query
+shareimprove this question
+edited Aug 16 '11 at 16:43
+
+RolandoMySQLDBA
+62.8k1062145	
+asked Feb 23 '11 at 16:09
+
+Sree
+11438
+  	 	
+What database are you using? What version of that database are you using? What is the query plan? What indexes, if any, are available? –  Justin Cave Feb 23 '11 at 16:45 
+  	 	
+Oracle 11g R2,indexes on project_nbr, status, aud_timestamp I couldnt paste all the plan since its big..but high level one SELECT STATEMENT ALL_ROWS Cost: 23,994 Bytes: 10,354,014 Cardinality: 383,482 –  Sree Feb 23 '11 at 18:09 
+  	 	
+@Leigh..please see my question "Group data by non-unique keys by distinct time range" for details. –  Sree Feb 23 '11 at 21:26 
+  	 	
+@Sree - Why can't you post the query plan? There are only 3 table references in your query, the plan can't possibly be all that big. Without the plan, it's going to be very difficult to help you. –  Justin Cave Feb 23 '11 at 21:54
+  	 	
+@Justin - Since task was only one time run..I converted this to plsql block,now it runs within 15sec..Thanks for your time.. –  Sree Feb 25 '11 at 14:34
+show 2 more comments
+1 Answer
+activeoldestvotes
+up vote
+6
+down vote
+This is the offending code causing your query to take hours to return results:
+
+           and not exists (
+                        select null 
+                        from pa q
+                        where q.PROJect_NBR = p.project_nbr 
+                          and q.status <> p.status 
+                          and q.aud_timestamp < p.aud_timestamp 
+                          and q.aud_timestamp > a.aud_timestamp
+                           )
+You should really convert that to a join instead, because as it stands you are generating a new lookup for each record in the 2million source rows.
+
+shareimprove this answer
+answered Feb 23 '11 at 17:06
+
+jcolebrand?
+4,32642254
+2	 	
+NOTE: this is not gauranteed to be the ONLY cause, but this is a predominant cause. We still want to see the EXPLAIN and any indexes you've got setup. By using a temptable and some indexes we might could do more if you can't alter the underlying tables to add indexes. –  jcolebrand? Feb 23 '11 at 17:36
+  	 	
+I agree with that, joins can be better performing, then doing exists or in statements. –  crosenblum Feb 25 '11 at 15:06
+add a comment

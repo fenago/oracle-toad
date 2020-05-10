@@ -1,0 +1,7 @@
+SELECT INITCAP(NAME_IND) NAME_IND, LENGTH(NAME_IND) LENGTH_OF_NAME
+FROM PERS_PERSON_TBL
+WHERE NAME_IND LIKE 'A%' or
+      NAME_IND like 'J%' or
+      NAME_IND like 'M%'
+order by name_ind
+/

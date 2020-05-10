@@ -1,0 +1,339 @@
+ORACLE>/* PROBLEM #1 */
+
+ORACLE>COLUMN SALARY FORMAT $99,999.99 --SQL*PLUS MODE
+
+ORACLE>SELECT ID,NAME,
+       TO_CHAR(SALARY,'$99,999.99'),JOB,DEPT FROM STAFF
+       WHERE DEPT = 10 AND JOB = 'MGR';
+MORE
+     ID NAME             SALARY JOB      DEPT                                  
+------- ----------- ----------- ----- -------                                  
+    160 MOLINARE     $22,959.20 MGR        10                                  
+    210 LU           $20,010.00 MGR        10                                  
+    240 DANIELS      $19,260.25 MGR        10                                  
+    260 JONES        $21,234.00 MGR        10                                  
+
+ORACLE>/* PROBLEM #2 */
+
+ORACLE>COLUMN DEPTNUMB HEADING DEPARTMENT -- SQL*PLUS
+
+ORACLE>SELECT DEPTNUMB DEPARTMENT, MANAGER, DIVISION
+  2  FROM ORG;
+MORE
+DEPARTMENT MANAGER DIVISION                                                    
+---------- ------- ---------                                                   
+        10     160 CORPORATE                                                   
+        15      50 EASTERN                                                     
+        20      10 EASTERN                                                     
+        38      30 EASTERN                                                     
+        42     100 MIDWEST                                                     
+        51     140 MIDWEST                                                     
+        66     270 WESTERN                                                     
+        84     290 WESTERN                                                     
+
+8 rows selected.
+
+ORACLE>/* PROBLEM #3 */
+
+ORACLE>SET NUMFORMAT $999,999.99PR --SQL*PLUS
+
+ORACLE>SELECT ID,NAME,SALARY,
+      TO_CHAR(COMM,'$999,999.99PR')
+	FROM STAFF
+
+MORE
+NAME        JOB        SALARY          COMM                                    
+----------- ----- ----------- -------------                                    
+SANDERS     MGR    $18,357.50                                                  
+PERNAL      SALES  $18,171.25      $612.45                                     
+MARENGHI    MGR    $17,506.75                                                  
+O'BRIEN     SALES  $18,006.00      $846.55                                     
+HANES       MGR    $20,659.80                                                  
+QUIGLEY     SALES  $16,808.30      $650.25                                     
+ROTHMAN     SALES  $16,502.83    $1,152.00                                     
+JAMES       CLERK  $13,504.60      $128.20                                     
+KOONITZ     SALES  $18,001.75    $1,386.70                                     
+PLOTZ       MGR    $18,352.80                                                  
+NGAN        CLERK  $12,508.20      $206.60                                     
+NAUGHTON    CLERK  $12,954.75      $180.00                                     
+YAMAGUCHI   CLERK  $10,505.90       $75.60                                     
+FRAYE       MGR    $21,150.00                                                  
+WILLIAMS    SALES  $19,456.50      $637.65                                     
+MOLINARE    MGR    $22,959.20                                                  
+KERMISCH    CLERK  $12,258.50      $110.10                                     
+ABRAHAMS    CLERK  $12,009.75      $236.50                                     
+SNEIDER     CLERK  $14,252.75      $126.50                                     
+SCOUTTEN    CLERK  $11,508.60       $84.20                                     
+LU          MGR    $20,010.00                                                  
+SMITH       SALES  $17,654.50      $992.80                                     
+MORE
+NAME        JOB        SALARY          COMM                                    
+----------- ----- ----------- -------------                                    
+LUNDQUIST   CLERK  $13,369.80      $189.65                                     
+DANIELS     MGR    $19,260.25                                                  
+WHEELER     CLERK  $14,460.00      $513.30                                     
+JONES       MGR    $21,234.00                                                  
+LEA         MGR    $18,555.50                                                  
+WILSON      SALES  $18,674.50      $811.50                                     
+QUILL       MGR    $19,818.00                                                  
+DAVIS       SALES  $21,000.00      $200.30                                     
+GRAHAM      SALES  $23,100.00      $200.30                                     
+GONZALES    SALES  $16,858.20      $844.00                                     
+BURKE       CLERK  $10,988.00       $55.50                                     
+EDWARDS     SALES  $17,844.00    $1,285.00                                     
+GAFNEY      CLERK  $13,030.50      $188.00                                     
+J RICHARD   MGR    $66,000.00    $5,000.00                                     
+
+36 rows selected.
+
+ORACLE>/* PROBLEM # 4 */
+
+ORACLE>SELECT * FROM STAFF
+  2  WHERE COMM > &COMM;
+Enter value for comm: 200
+old   2: WHERE COMM > &COMM
+new   2: WHERE COMM > 200
+MORE
+           ID NAME                 DEPT JOB           YEARS      SALARY        
+------------- ----------- ------------- ----- ------------- -----------        
+         COMM                                                          
+-------------                                                         
+       20  PERNAL            20  SALES     		  8   $18,171.25        
+     $612.45                                                          
+                                                                               
+      40  O'BRIEN           38	 SALES      		  6  $18,006.00        
+    $846.55                                                         
+                                                                               
+      60 QUIGLEY            38   SALES        		        $16,808.30        
+     $650.25                                                        
+                                                                               
+      70  ROTHMAN           15   SALES       		  7	 $16,502.83        
+   $1,152.00                                                         
+                                                                               
+      90  KOONITZ           42	 SALES    		  6	  $18,001.75        
+   $1,386.70                                                          
+                                                                               
+     110  NGAN              15	 CLERK  		  5	   $12,508.20        
+     $206.60                                                          
+                                                                               
+     15 WILLIAMS            51   SALES      		  6   $19,456.50        
+     $637.65                                                         
+MORE
+           ID NAME                 DEPT JOB           YEARS      SALARY        
+------------- ----------- ------------- ----- ------------- -----------        
+         COMM                                                        
+------------- -                                                        
+                                                                               
+     180 ABRAHAMS 		     38  CLERK     	 3   $12,009.75        
+     $236.50                                                         
+                                                                               
+     220 SMITH      		     51  SALES  	 7   $17,654.50        
+     $992.80                                                      
+                                                                               
+     250 WHEELER       		     51  CLERK           6   $14,460.00        
+     $513.30                                                        
+                                                                               
+     280  WILSON      		     66  SALES           9   $18,674.50        
+     811.50                                                         
+                                                                               
+     300  DAVIS                	     84  SALES           5   $21,000.00        
+     $200.30                                                          
+                                                                               
+     310  GRAHAM     		     66  SALES          13   $23,100.00        
+     $200.30                                                        
+                                                                               
+     320  GONZALES                   66  SALES           4   $16,858.20        
+MORE
+           ID NAME                 DEPT JOB           YEARS      SALARY        
+------------- ----------- ------------- ----- ------------- -----------        
+         COMM                                                         
+-------------                                                        
+     844.00                                                      
+                                                                               
+     340  EDWARDS          	     84  SALES           7   $17,844.00        
+   $1,285.00                                                        
+                                                                               
+     777 J RICHARD              	 MGR                 $66,000.00        
+   $5,000.00                                                         
+                                                                               
+
+16 rows selected.
+
+ORACLE>/* PROBLEM # 5 */
+
+ORACLE> 
+
+ORACLE>SELECT ID,NAME,DEPT,YEARS,JOB,SALARY,COMM,
+       SYSDATE
+  2  FROM STAFF
+  3  WHERE YEARS > 5;  or
+        SELECT S.*, SYSDATE
+ 	FROM STAFF S
+	WHERE YEARS > 5;   OR
+       SELECT S.*,SYSDATE,ADD_MONTHS(SYSDATE,6)
+	FROM STAFF
+	WHERE YEARS > 5;
+MORE
+Wed Feb 12                                                            page    1
+                              STAFF REPORT 
+
+           ID NAME                 DEPT         YEARS JOB        SALARY        
+------------- ----------- ------------- ------------- ----- -----------        
+         COMM SYSDATE                                                          
+------------- ---------                                                        
+      	      SANDERS                20         7	 MGR    $18,357.50        
+              12-FEB-97                                                        
+                                                                               
+      20      PERNAL      	     20         8	 SALES  $18,171.25        
+     $612.45  12-FEB-97                                                        
+                                                                               
+      40  O'BRIEN         	     38         6	 SALES  $18,006.00        
+     $846.55  12-FEB-97                                                        
+                                                                               
+      50  HANES      		     15        10	 MGR    $20,659.80        
+              12-FEB-97                                                        
+                                                                               
+      70  ROTHMAN          	     15         7 	 SALES  $16,502.83        
+   $1,152.00  12-FEB-97                                                        
+                                                                               
+      90  KOONITZ         	     42         6  	 SALES  $18,001.75        
+   $1,386.70  12-FEB-97                                                        
+MORE
+Wed Feb 12                                                            page    2
+                              STAFF REPORT 
+
+           ID NAME                 DEPT         YEARS JOB        SALARY        
+------------- ----------- ------------- ------------- ----- -----------        
+         COMM SYSDATE                                                          
+------------- ---------                                                        
+                                                                               
+     100 PLOTZ           	     42  	7	 MGR    $18,352.80        
+              12-FEB-97                                                        
+                                                                               
+     130  YAMAGUCHI  		     42         6 	 CLERK  $10,505.90        
+      $75.60  12-FEB-97                                                        
+                                                                               
+     140  FRAYE          	     51         6 	 MGR    $21,150.00        
+              12-FEB-97                                                        
+                                                                               
+     150  WILLIAMS   		     51         6 	 SALES  $19,456.50        
+     $637.65  12-FEB-97                                                        
+                                                                               
+     160  MOLINARE       	     10         7 	 MGR    $22,959.20        
+              12-FEB-97                                                        
+                                                                               
+     190  SNEIDER      		     20         8 	 CLERK  $14,252.75        
+MORE
+Wed Feb 12                                                            page    3
+                              STAFF REPORT 
+
+           ID NAME                 DEPT         YEARS JOB        SALARY        
+------------- ----------- ------------- ------------- ----- -----------        
+         COMM SYSDATE                                                          
+------------- ---------                                                        
+     $126.50  12-FEB-97                                                        
+                                                                               
+     210  LU             	     10        10  	 MGR    $20,010.00        
+              12-FEB-97                                                        
+                                                                               
+     220  SMITH    	             51         7  	 SALES  $17,654.50        
+     $992.80  12-FEB-97                                                        
+                                                                               
+     250  WHEELER 	             51         6  	 CLERK  $14,460.00        
+     $513.30  12-FEB-97                                                        
+                                                                               
+     260  JONES   	             10        12 	 MGR    $21,234.00        
+              12-FEB-97                                                        
+                                                                               
+     270  LEA       	             66        10 	 MGR    $18,555.50        
+              12-FEB-97                                                        
+                                                                               
+MORE
+Wed Feb 12                                                            page    4
+                              STAFF REPORT 
+
+           ID NAME                 DEPT         YEARS JOB        SALARY        
+------------- ----------- ------------- ------------- ----- -----------        
+         COMM SYSDATE                                                          
+------------- ---------                                                        
+     280  WILSON     	             66         9 	 SALES  $18,674.50        
+     $811.50  12-FEB-97                                                        
+                                                                               
+     290 QUILL      		     84        10  	 MGR    $19,818.00        
+              12-FEB-97                                                        
+                                                                               
+     310  GRAHAM      		     66        13 	 SALES  $23,100.00        
+     $200.30  12-FEB-97                                                        
+                                                                               
+     340  EDWARDS     		     84         7	 SALES  $17,844.00        
+   $1,285.00  12-FEB-97                                                        
+                                                                               
+
+21 rows selected.
+                                           HERE YEARS > 5
+
+
+
+ORACLE>/* PROBLEM #6 */
+
+
+ORACLE>L
+  1  SELECT ID,NAME,DEPT,JOB,YEARS,SALARY,
+     NVL(TO_CHAR(COMM),'NO COMM')
+  2* FROM STAFF
+  3  WHERE JOB = 'SALES'
+  4  .
+ORACLE>/
+MORE
+STAFF REPORT|_DATE_PAGE                                                        
+           ID NAME                 DEPT JOB           YEARS      SALARY        
+------------- ----------- ------------- ----- ------------- -----------        
+NVL(TO_CHAR(COMM),'NOCOMM')                                                    
+----------------------------------------                                       
+      20      PERNAL                20  SALES           8   $18,171.25        
+612.45                                                                         
+                                                                               
+      40      O'BRIEN               38  SALES           6   $18,006.00        
+846.55                                                                         
+                                                                               
+      60      QUIGLEY               38  SALES                $16,808.30        
+650.25                                                                         
+                                                                               
+      70      ROTHMAN               15  SALES           7   $16,502.83        
+1152                                                                           
+                                                                               
+      90      KOONITZ               42  SALES           6   $18,001.75        
+1386.7                                                                         
+                                                                               
+     150      WILLIAMS              51  SALES           6   $19,456.50        
+637.65                                                                         
+                                                                               
+     220      SMITH                 51  SALES           7   $17,654.50        
+MORE
+STAFF REPORT|_DATE_PAGE                                                        
+           ID NAME                 DEPT JOB           YEARS      SALARY        
+------------- ----------- ------------- ----- ------------- -----------        
+NVL(TO_CHAR(COMM),'NOCOMM')                                                    
+----------------------------------------                                       
+992.8                                                                          
+                                                                               
+     280      WILSON                66 SALES           9   $18,674.50        
+811.5                                                                          
+                                                                               
+     300      DAVIS                 84 SALES           5   $21,000.00        
+200.3                                                                          
+                                                                               
+     310      GRAHAM                66  SALES         13   $23,100.00        
+200.3                                                                          
+                                                                               
+     320      GONZALES              66  SALES          4   $16,858.20        
+844                                                                            
+                                                                               
+     340      EDWARDS               84  SALES          7   $17,844.00        
+1285                                                                           
+                                                                               
+
+12 rows selected.
+
+ORACLE>
+ORACLE>SPOOL OFF

@@ -1,0 +1,199 @@
+SCOTT (winorcl) >select count(*) from staff
+  2              where job = 'CLERK';
+
+   COUNT(*)                                                                                                                         
+-----------                                                                                                                         
+         12                                                                                                                         
+
+1 row selected.
+
+SCOTT (winorcl) >SELECT DEPT, NAME, SALARY, COMM
+  2              FROM STAFF
+  3              ORDER BY DEPT;
+
+       DEPT NAME                                                               SALARY        COMM                                   
+----------- ------------------------------------------------------------ ------------ -----------                                   
+         10 LU                                                             $20,010.00                                               
+         10 DANIELS                                                        $19,260.25                                               
+         10 MOLINARE                                                       $22,959.20                                               
+         10 JONES                                                          $21,234.00                                               
+         15 KERMISCH                                                       $12,258.50     $110.10                                   
+         15 HANES                                                          $20,659.80                                               
+         15 NGAN                                                           $12,508.20     $206.60                                   
+         15 ROTHMAN                                                        $16,502.83   $1,152.00                                   
+         20 PERNAL                                                         $18,171.25     $612.45                                   
+         20 SNEIDER                                                        $14,252.75     $126.50                                   
+         20 SANDERS                                                        $18,357.50                                               
+         38 NAUGHTON                                                       $12,954.75     $180.00                                   
+         38 QUIGLEY                                                        $16,808.30     $650.25                                   
+         38 O'BRIEN                                                        $18,006.00     $846.55                                   
+         38 MARENGHI                                                       $17,506.75                                               
+         38 ABRAHAMS                                                       $12,009.75     $236.50                                   
+         42 KOONITZ                                                        $18,001.75   $1,386.70                                   
+         42 PLOTZ                                                          $18,352.80                                               
+         42 YAMAGUCHI                                                      $10,505.90      $75.60                                   
+         42 SCOUTTEN                                                       $11,508.60      $84.20                                   
+         51 LUNDQUIST                                                      $13,369.80     $189.65                                   
+         51 FRAYE                                                          $21,150.00                                               
+         51 WHEELER                                                        $14,460.00     $513.30                                   
+         51 WILLIAMS                                                       $19,456.50     $637.65                                   
+         51 SMITH                                                          $17,654.50     $992.80                                   
+         66 WILSON                                                         $18,674.50     $811.50                                   
+         66 GONZALES                                                       $16,858.20     $844.00                                   
+         66 LEA                                                            $18,555.50                                               
+         66 BURKE                                                          $10,988.00      $55.50                                   
+         66 GRAHAM                                                         $21,000.00     $200.30                                   
+         84 DAVIS                                                          $21,000.00     $200.30                                   
+         84 QUILL                                                          $19,818.00                                               
+         84 GAFNEY                                                         $13,030.50     $188.00                                   
+         84 EDWARDS                                                        $17,844.00   $1,285.00                                   
+            JAMES                                                          $13,504.60     $128.20                                   
+
+35 rows selected.
+
+SCOTT (winorcl) >SELECT JOB, SUM(SALARY)
+  2              FROM STAFF
+  3              WHERE DEPT IN (20,42,51,84)
+  4              GROUP BY JOB;
+
+JOB   SUM(SALARY)                                                                                                                   
+----- -----------                                                                                                                   
+MGR       77678.3                                                                                                                   
+CLERK    77127.55                                                                                                                   
+SALES      112128                                                                                                                   
+
+3 rows selected.
+
+SCOTT (winorcl) >SELECT DEPT, AVG(SALARY),SUM(SALARY),AVG(COMM),SUM(COMM)
+  2              FROM STAFF
+  3              GROUP BY DEPT
+  4              HAVING AVG(COMM) > 1200;
+
+no rows selected
+
+SCOTT (winorcl) >C/1200/1000
+  4*             HAVING AVG(COMM) > 1000
+SCOTT (winorcl) >/
+
+no rows selected
+
+SCOTT (winorcl) >C/1000/300
+  4*             HAVING AVG(COMM) > 300
+SCOTT (winorcl) >/
+
+       DEPT AVG(SALARY) SUM(SALARY)   AVG(COMM)   SUM(COMM)                                                                         
+----------- ----------- ----------- ----------- -----------                                                                         
+         42  14592.2625    58369.05       515.5      1546.5                                                                         
+         51    17218.16     86090.8      583.35      2333.4                                                                         
+         20 16927.16667     50781.5     369.475      738.95                                                                         
+         66    17215.24     86076.2     477.825      1911.3                                                                         
+         84   17923.125     71692.5 557.7666667      1673.3                                                                         
+         38    15457.11    77285.55     478.325      1913.3                                                                         
+         15  15482.3325    61929.33 489.5666667      1468.7                                                                         
+
+7 rows selected.
+
+SCOTT (winorcl) >EDIT
+Wrote file afiedt.buf
+
+  1  SELECT DEPT, JOB, SALARY, SALARY+NVL(COMM,0)
+  2              FROM STAFF
+  3              WHERE DEPT IN (15,20,42,84) AND
+  4*             SALARY > 15000.00
+SCOTT (winorcl) >/
+
+       DEPT JOB         SALARY SALARY+NVL(COMM,0)                                                                                   
+----------- ----- ------------ ------------------                                                                                   
+         20 MGR     $18,357.50            18357.5                                                                                   
+         20 SALES   $18,171.25            18783.7                                                                                   
+         15 MGR     $20,659.80            20659.8                                                                                   
+         15 SALES   $16,502.83           17654.83                                                                                   
+         42 SALES   $18,001.75           19388.45                                                                                   
+         42 MGR     $18,352.80            18352.8                                                                                   
+         84 MGR     $19,818.00              19818                                                                                   
+         84 SALES   $21,000.00            21200.3                                                                                   
+         84 SALES   $17,844.00              19129                                                                                   
+
+9 rows selected.
+
+SCOTT (winorcl) >SELECT NAME FROM STAFF
+  2              WHERE NAME LIKE '%ON%';
+
+NAME                                                                                                                                
+------------------------------------------------------------                                                                        
+KOONITZ                                                                                                                             
+NAUGHTON                                                                                                                            
+JONES                                                                                                                               
+WILSON                                                                                                                              
+GONZALES                                                                                                                            
+
+5 rows selected.
+
+SCOTT (winorcl) >SELECT SALARY, SALARY/52 WEEKLY_SALARY
+  2              FROM STAFF
+  3              WHERE SALARY/52 > 300;
+
+      SALARY WEEKLY_SALARY                                                                                                          
+------------ -------------                                                                                                          
+  $18,357.50   353.0288462                                                                                                          
+  $18,171.25   349.4471154                                                                                                          
+  $17,506.75   336.6682692                                                                                                          
+  $18,006.00   346.2692308                                                                                                          
+  $20,659.80   397.3038462                                                                                                          
+  $16,808.30   323.2365385                                                                                                          
+  $16,502.83   317.3621154                                                                                                          
+  $18,001.75      346.1875                                                                                                          
+  $18,352.80   352.9384615                                                                                                          
+  $21,150.00   406.7307692                                                                                                          
+  $19,456.50   374.1634615                                                                                                          
+  $22,959.20   441.5230769                                                                                                          
+  $20,010.00   384.8076923                                                                                                          
+  $17,654.50   339.5096154                                                                                                          
+  $19,260.25   370.3894231                                                                                                          
+  $21,234.00   408.3461538                                                                                                          
+  $18,555.50   356.8365385                                                                                                          
+  $18,674.50       359.125                                                                                                          
+  $19,818.00   381.1153846                                                                                                          
+  $21,000.00   403.8461538                                                                                                          
+  $21,000.00   403.8461538                                                                                                          
+  $16,858.20   324.1961538                                                                                                          
+  $17,844.00   343.1538462                                                                                                          
+
+23 rows selected.
+
+
+SCOTT (winorcl) >L
+  1  SELECT SALARY, SALARY/52 WEEKLY_SALARY
+  2              FROM STAFF
+  3*             WHERE SALARY > 300 *52
+SCOTT (winorcl) >/
+
+      SALARY WEEKLY_SALARY                                                                                                          
+------------ -------------                                                                                                          
+  $18,357.50   353.0288462                                                                                                          
+  $18,171.25   349.4471154                                                                                                          
+  $17,506.75   336.6682692                                                                                                          
+  $18,006.00   346.2692308                                                                                                          
+  $20,659.80   397.3038462                                                                                                          
+  $16,808.30   323.2365385                                                                                                          
+  $16,502.83   317.3621154                                                                                                          
+  $18,001.75      346.1875                                                                                                          
+  $18,352.80   352.9384615                                                                                                          
+  $21,150.00   406.7307692                                                                                                          
+  $19,456.50   374.1634615                                                                                                          
+  $22,959.20   441.5230769                                                                                                          
+  $20,010.00   384.8076923                                                                                                          
+  $17,654.50   339.5096154                                                                                                          
+  $19,260.25   370.3894231                                                                                                          
+  $21,234.00   408.3461538                                                                                                          
+  $18,555.50   356.8365385                                                                                                          
+  $18,674.50       359.125                                                                                                          
+  $19,818.00   381.1153846                                                                                                          
+  $21,000.00   403.8461538                                                                                                          
+  $21,000.00   403.8461538                                                                                                          
+  $16,858.20   324.1961538                                                                                                          
+  $17,844.00   343.1538462                                                                                                          
+
+23 rows selected.
+
+SCOTT (winorcl) >SPOOL OFF

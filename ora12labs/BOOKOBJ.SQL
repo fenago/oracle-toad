@@ -1,0 +1,2 @@
+ CREATE TYPE BookList AS TABLE OF BookObj
+/

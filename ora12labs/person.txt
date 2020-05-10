@@ -1,0 +1,3 @@
+set termout off
+select * from pers_person_tbl
+/

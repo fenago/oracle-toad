@@ -1,0 +1,8 @@
+ CREATE TABLE STAFF2
+ ( DEPTNO  NUMBER(5) NOT NULL,
+   NAME   VARCHAR2(20),
+   YEARS   NUMBER(4),
+   SALARY   NUMBER(7,2),
+   COM   NUMBER(7,2),
+   address   myAddressObj)
+/

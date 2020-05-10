@@ -1,0 +1,4 @@
+CREATE TABLE CACHE_TABLE
+          (ID   NUMBER NOT NULL)
+           CACHE
+/

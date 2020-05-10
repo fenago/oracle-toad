@@ -1,0 +1,16 @@
+CREATE TABLE vote_count (
+submit_date  DATE NOT NULL,
+num_votes    NUMBER NOT NULL);
+
+INSERT INTO vote_count VALUES (TRUNC(SYSDATE)-4, 100);
+INSERT INTO vote_count VALUES (TRUNC(SYSDATE)-3, 150);
+INSERT INTO vote_count VALUES (TRUNC(SYSDATE)-2, 75);
+INSERT INTO vote_count VALUES (TRUNC(SYSDATE)-3, 25);
+INSERT INTO vote_count VALUES (TRUNC(SYSDATE)-1, 50);
+COMMIT;
+
+SELECT * FROM vote_count;
+
+SELECT submit_date, num_votes, TRUNC(AVG(num_votes) 
+OVER(ORDER BY submit_date ROWS UNBOUNDED PRECEDING)) TOT_VOTE
+FROM vote_count
