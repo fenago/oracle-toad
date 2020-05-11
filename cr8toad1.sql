@@ -1,4 +1,7 @@
-alter session set container=fenagodb1;
+alter session set "_ORACLE_SCRIPT"=true; 
+
+/* alter session set container=fenagodb1;
+*/
 
 create user scott identified by tiger;
 grant connect,resource,create view, create synonym, select_catalog_role
