@@ -11,7 +11,8 @@ password: 			fenago
 
 
 ## Important
-Open Database;
+
+**Open Pluggable Database (if required)**
 
 alter pluggable database fenagodb1 open;
 
