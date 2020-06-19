@@ -1,11 +1,11 @@
 
 ## Oracle 12c
 
-Global Database:    fenagodb
-PDB:				fenagodb1
+- Global Database:    fenagodb
+- PDB:				fenagodb1
 
-user: 				system
-password: 			fenago
+- user: 				system
+- password: 			fenago
 
 
 
